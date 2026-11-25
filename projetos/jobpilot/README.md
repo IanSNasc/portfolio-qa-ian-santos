@@ -1,5 +1,7 @@
 # JobPilot — Copiloto de Candidaturas
 
+> Registro histórico de arquitetura, riscos e plano. A descrição mistura proposta e implementação parcial, como indicam os gaps; não comprova execução de todos os cenários nem funcionamento de todos os módulos. [Apresentação atual](../../README.md).
+
 ## 1. Descrição do Projeto
 
 **JobPilot** é um sistema de automação de candidaturas a vagas de emprego. O projeto scraping, aplicação automática, dashboard e relatórios para auxiliar profissionais na busca por emprego de forma organizada e escalável.
