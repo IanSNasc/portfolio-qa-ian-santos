@@ -1,155 +1,93 @@
-# 🧪 Portfólio QA — Ian Santos
+# Ian Santos — Desenvolvimento de software & qualidade
 
-![Projetos](https://img.shields.io/badge/Projetos_Documentados-4-blue?style=for-the-badge)
-![Bugs](https://img.shields.io/badge/Bugs_Reportados-28+-red?style=for-the-badge)
-![Casos de Teste](https://img.shields.io/badge/Casos_de_Teste-89+-green?style=for-the-badge)
-![Templates](https://img.shields.io/badge/Templates_QA-6-purple?style=for-the-badge)
+Estudante de Engenharia de Software. Desenvolvo aplicações web com apoio de IA e trato revisão, testes e documentação como parte da implementação.
 
-Portfólio de documentação de QA contendo planejamentos de teste, casos de teste, relatórios de bugs, análises de risco e propostas de melhoria para múltiplos projetos reais.
+Meu foco profissional é **desenvolvimento de software, com destaque para qualidade**. Este repositório reúne apresentação web, estudos de caso, exemplos interativos e documentação de testes.
 
----
+## Projetos em destaque
 
-## 👤 Sobre Mim
+| Projeto | Problema e contribuição | Tecnologias | Estado apresentado |
+|---|---|---|---|
+| [CondoSphere](projetos/condosphere/README.md) | Projeto pessoal de gestão condominial: interface, regras por perfil, isolamento e validação de fluxos | React, TypeScript, Supabase, PostgreSQL, Vitest, Playwright | Preparação para piloto; financeiro em sandbox; testes atuais com pendências |
+| [Foco PMBA](projetos/foco-pmba/README.md) | Organizar sessões, prática, erros, revisões e progresso de estudos | React, JavaScript, Vite, PWA, Node Test | Aplicação pessoal; 17 testes locais aprovados em 25/11/2026 |
+| [Klipper](projetos/klipper/README.md) | Projeto de extensão de agendamento para barbearias; desenvolvimento e análise da integração | Python, Flask, Flutter, APIs REST | Diagnóstico histórico com problemas e melhorias documentados |
 
-Sou **Ian Santos**, estudante de **Engenharia de Software**, em transição ativa para a área de **Quality Assurance**. Este portfólio documenta minha evolução prática como analista de testes — cada projeto aqui foi analisado, documentado e testado por mim.
+O código de CondoSphere e Foco PMBA permanece privado. As demonstrações foram implementadas separadamente, com dados fictícios e escopo reduzido; não redistribuem bancos, configurações ou credenciais desses projetos.
 
-**Objetivo:** Vaga de QA Júnior / Analista de Testes, com interesse em evoluir para QA Automation.
+## Apresentação web e demonstrações
 
-### Habilidades
+O site está em [docs/](docs/). Usa HTML, CSS e módulos JavaScript sem framework, dependências externas ou compilação.
 
-| Área | Competências |
-|------|-------------|
-| **Testes Manuais** | Casos de teste funcionais, negativos, de limite e exploratórios |
-| **Documentação** | Bug reports, planos de teste, matrizes de risco, relatórios executivos |
-| **Metodologias** | BDD/Gherkin, testes de regressão, análise de impacto |
-| **Ferramentas** | Git, GitHub, Markdown, Excel, Postman |
-| **Em Desenvolvimento** | Playwright, automação de testes, API testing |
+- **CondoSphere:** simulação local de reservas. Morador solicita/cancela, gestão aprova/rejeita e portaria consulta as aprovadas. A troca de perfil não é autenticação real.
+- **Foco PMBA:** registro de estudo, três questões didáticas, revisão de erros, persistência e backup validado. Não representa prova ou edital oficial.
+- **Currículo:** [versão web](docs/cv/index.html) e [PDF em português](docs/cv/Ian-Santos-Desenvolvimento.pdf), voltados a desenvolvimento.
 
----
+Para conferir localmente, com Node instalado:
 
-## 📋 Projetos Documentados
-
-| Projeto | Tipo | Casos de Teste | Bugs | Destaques |
-|---------|------|:-:|:-:|-----------|
-| [**BarberOS**](./projetos/barber-os/) | 🏢 Sistema real em produção | 4 cenários | 4 bugs | Bugs reais com impacto financeiro direto no cliente |
-| [**Detailer App**](./projetos/detailer-app/) | 📱 Estudo de caso QA | 42 casos | 15 bugs | Análise completa de app mobile com 74% de taxa de sucesso |
-| [**Klipper**](./projetos/klipper/) | 🎓 Projeto de extensão | 35+ planejados | 9 bugs | Ecossistema Flask + Flutter + Chat Web + Bot WhatsApp |
-| [**JobPilot**](./projetos/jobpilot/) | 🤖 Projeto autoral com IA | 35+ planejados | 5 gaps | QA em sistema de automação com scraping e IA |
-
-### 🎯 Metodologia Híbrida (Diferencial)
-Neste portfólio, demonstro domínio sobre duas abordagens diferentes de documentação de testes, adaptando-me à necessidade do projeto:
-- **Abordagem Detalhada (BDD):** No *Detailer App*, apresento 42 casos de teste escritos passo-a-passo (Pré-condição, Passos, Resultado), ideal para automação e projetos complexos.
-- **Abordagem Ágil (Matriz):** No *Klipper* e *JobPilot*, utilizo tabelas de cenários embutidas diretamente no Plano de Testes, ideal para *squads* ágeis que exigem documentação enxuta e leitura rápida.
-
-### Destaques por Projeto
-**🏢 BarberOS** — O case mais forte deste portfólio. Sistema real de gestão de barbearia, em produção com dados reais de clientes. Identifiquei bugs que causavam **prejuízo financeiro direto** (comissão calculada incorretamente), documentei com análise de impacto no negócio e propus correções priorizadas.
-
-**📱 Detailer App** — Estudo de caso completo de QA manual em aplicativo de terceiro. Escrevi 42 casos de teste em formato BDD, identifiquei 15 bugs com análise de severidade/prioridade e produzi relatório final com padrões de falha e recomendações.
-
-**🎓 Klipper** — Projeto de extensão universitária com entrega real. Documentei a arquitetura completa, identifiquei 9 bugs (incluindo gaps de segurança como falta de logout no backend) e propus 9 melhorias com código de implementação.
-
-**🤖 JobPilot** — Projeto autoral de automação de candidaturas com IA. Documentei a arquitetura modular, criei plano de testes com 35+ cenários e análise de riscos com mitigações e KPIs.
-
----
-
-## 📂 Estrutura do Repositório
-
-```
-portfolio-qa/
-├── projetos/
-│   ├── barber-os/          # Sistema real — bugs em produção
-│   │   ├── README.md
-│   │   ├── plano-de-testes.md
-│   │   ├── plano-regressao.md
-│   │   ├── bugs-reportados.md
-│   │   ├── melhorias.md
-│   │   └── relatorio-final.md
-│   ├── detailer-app/       # Estudo de caso — app mobile
-│   │   ├── README.md
-│   │   ├── plano-de-testes.md
-│   │   ├── casos-de-teste.md    (42 casos BDD)
-│   │   ├── bugs-reportados.md   (15 bugs)
-│   │   ├── melhorias.md
-│   │   └── relatorio-final.md
-│   ├── klipper/            # Extensão universitária
-│   │   ├── README.md
-│   │   ├── funcionalidades.md
-│   │   ├── plano-de-testes.md
-│   │   ├── bugs-reportados.md   (9 bugs)
-│   │   └── melhorias.md         (9 melhorias)
-│   └── jobpilot/           # Automação com IA
-│       ├── README.md
-│       ├── arquitetura.md
-│       ├── plano-de-testes.md   (35+ cenários)
-│       └── riscos.md
-├── templates/              # Templates reutilizáveis de QA
-│   ├── plano-de-testes.md
-│   ├── casos-de-teste.md
-│   ├── bug-report.md
-│   ├── relatorio-final.md
-│   ├── matriz-de-risco.md
-│   └── checklist-exploratorio.md
-└── automacoes/             # Scripts de automação
-    ├── gerar_docs_qa.py
-    └── README.md
+```bash
+node scripts/serve.mjs
 ```
 
----
+Abra o endereço impresso. Para validar:
 
-## 📝 Templates Disponíveis
+```bash
+node --test tests/*.test.mjs
+node scripts/verify-site.mjs
+```
 
-Templates reutilizáveis para documentação de QA, prontos para uso em qualquer projeto:
+A publicação no GitHub Pages está preparada em [.github/workflows/pages.yml](.github/workflows/pages.yml). Consulte [PUBLICACAO.md](PUBLICACAO.md) para a configuração inicial e a verificação. A presença dos arquivos não significa que o site já esteja publicado.
 
-| Template | Descrição |
-|----------|-----------|
-| [Plano de Testes](./templates/plano-de-testes.md) | Estratégia, escopo, cronograma e critérios de entrada/saída |
-| [Casos de Teste](./templates/casos-de-teste.md) | Formato BDD com pré-condições, passos e resultados |
-| [Bug Report](./templates/bug-report.md) | Relatório com severidade, prioridade e impacto no negócio |
-| [Relatório Final](./templates/relatorio-final.md) | Resumo executivo com métricas e recomendações |
-| [Matriz de Risco](./templates/matriz-de-risco.md) | Análise probabilidade × impacto com mitigações |
-| [Checklist Exploratório](./templates/checklist-exploratorio.md) | Checklist para sessões de teste exploratório |
+## Desenvolvimento assistido por IA
 
----
+O uso de IA faz parte do desenvolvimento dos projetos e da preparação deste portfólio. A apresentação diferencia apoio à implementação, decisões de produto, revisão e validação. Não atribui autonomia ou domínio de uma ferramenta apenas porque ela aparece nas dependências.
 
-## 🔧 Ferramentas & Tecnologias
+O contexto de desenvolvimento contém uso do Codex e documentação de skills do Antigravity. A relação completa das ferramentas e a divisão de trabalho por etapa dependem de confirmação do autor; não há métricas de produtividade atribuídas a IA.
 
-| Categoria | Ferramentas |
-|-----------|------------|
-| Documentação | Markdown, GitHub |
-| Gestão de Testes | Excel, Google Sheets |
-| Versionamento | Git / GitHub |
-| API Testing | Postman |
-| Automação | Python (openpyxl, scripts de geração) |
-| Em Aprendizado | Playwright, pytest |
+## Qualidade e resultados verificáveis
 
----
+O [registro de validação de 25/11/2026](evidencias/validacoes-2026-11-25.md) informa versão, comando, resultado e limites. Foco PMBA passou em **17/17 testes** locais. CondoSphere terminou com **790 aprovados e 47 falhas**, em **837 testes**; não é apresentado como aprovação completa ou homologação de produção.
 
-## 📊 Métricas Consolidadas
+O estudo [erro de consulta versus ausência de documentos](projetos/condosphere/feedback-documentos.md) explica uma decisão da interface e sua regressão automatizada. Dependências simuladas, testes de navegador, políticas de banco e homologação com usuários têm escopos diferentes.
 
-| Métrica | Valor |
-|---------|-------|
-| Projetos documentados | 4 |
-| Casos de teste escritos | 89+ |
-| Bugs identificados | 28+ |
-| Melhorias propostas | 19+ |
-| Templates criados | 6 |
-| Taxa média de defeitos | ~30% |
+Os antigos totais de “89+ casos escritos”, “28+ bugs” e “taxa média de defeitos” foram retirados do resumo: o acervo mistura cenários planejados, executados e gaps, sem uma base única que permita agregá-los com precisão.
 
----
+## Acervo de estudos de QA
 
-## 📫 Contato
+Os documentos de maio de 2026 foram preservados como registros históricos. Seus números são resultados declarados nos estudos e não foram todos reexecutados nesta revisão.
 
-- **Email:** ian.s4ntos@gmail.com
-- **LinkedIn:** [linkedin.com/in/ian-santos-qa](https://www.linkedin.com/in/ian-santos-qa)
-- **GitHub:** [github.com/WildDuck-exe](https://github.com/WildDuck-exe)
+| Estudo | Material disponível |
+|---|---|
+| [BarberOS](projetos/barber-os/) | Exploração funcional, quatro bugs documentados e plano de regressão |
+| [Detailer App](projetos/detailer-app/) | Casos, bugs, recomendações e relatório histórico |
+| [Klipper](projetos/klipper/) | Arquitetura, diagnóstico de integração, plano e melhorias |
+| [JobPilot](projetos/jobpilot/) | Arquitetura proposta, plano e riscos; funcionalidades descritas não são todas implementadas |
 
----
+Também mantenho um [projeto inicial de automação com CodeceptJS](https://github.com/IanSNasc/qa-primeiros-testes-automatizados), com cenários de login em plataforma de estudo.
 
-## 📄 Licença
+## Formação e experiência
 
-Este repositório é um portfólio pessoal de documentação de QA. O conteúdo é de autoria de Ian Santos e pode ser usado como referência para estudos.
+- Engenharia de Software — Universidade Pitágoras Unopar Anhanguera, 2024–2027, em andamento.
+- Auxiliar de Informática no Atacadão desde abril de 2024, conforme currículo de outubro de 2026.
+- Trilha QA Starter & QA API — QAzando, certificação por módulo concluído.
+- Inglês intermediário, conforme autodeclaração no currículo anterior.
 
----
+## Contato
 
-*Última atualização: Maio 2026*
+- [GitHub / IanSNasc](https://github.com/IanSNasc)
+- [LinkedIn](https://www.linkedin.com/in/ian-santos-qa)
+- [ian.s4ntos@gmail.com](mailto:ian.s4ntos@gmail.com)
+
+## Estrutura
+
+```text
+docs/                  Site, currículo e demos independentes
+projetos/              Estudos técnicos e acervo de QA
+evidencias/            Validações com versão, escopo e limites
+templates/             Modelos de documentação de QA
+automacoes/            Ferramentas existentes de geração de documentos
+scripts/               Servidor local e verificação do site
+tests/                 Regras das novas demonstrações
+```
+
+Projetos de terceiros permanecem identificados como estudo. Não há autorização genérica para redistribuir seus códigos, marcas ou dados.
 

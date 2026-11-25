@@ -1,0 +1,36 @@
+# Registro de validação — 25/11/2026
+
+Resultados executados localmente durante a atualização do portfólio. Não são percentuais de cobertura nem certificação de produção. Referência: America/Sao_Paulo.
+
+## Foco PMBA
+
+- **Commit:** `089f5e150c85a3abc05267e300e2e1aa96527ebe`.
+- **Comando:** `node --test tests/*.test.js`.
+- **Resultado:** 17 testes, 17 aprovados, zero falhas/ignorados; saída 0.
+- **Escopo:** domínio, banco, filtros, treino, backup e função de verificação de release.
+- **Limite:** respostas HTTP de release simuladas. Sem confirmação de produção, homologação offline/aparelho ou deploy.
+
+## CondoSphere
+
+- **Commit:** `303c81c5f47663455868b71defe7a3d44f019dcc`, igual ao HEAD local e remoto inspecionado.
+- **Comando:** `node node_modules/vitest/vitest.mjs run --maxWorkers=2 --reporter=json --outputFile=<relatorio-local>`.
+- **Resultado:** 837 testes, 790 aprovados, 47 falhas, zero pendentes; saída 1.
+- **Arquivos:** 101 arquivos, nove com falhas. Suítes internas do Vitest não são contadas como arquivos.
+- **Escopo:** include de `vitest.config.ts` em `src`, `tests/core` e `tests/regression`, com jsdom e dependências simuladas/localizadas.
+- **Limite:** causas ainda precisam de classificação. Sem correção do produto, produção, Playwright completo ou deploy.
+
+O relatório bruto com caminhos locais e detalhes internos ficou fora do repositório público. Este resumo não inclui configurações ou dados de produção.
+
+## Portfólio e demonstrações
+
+A suíte em [`tests/demo-model.test.mjs`](../tests/demo-model.test.mjs) confere transições de reservas, perfis, conflitos, respostas únicas, minutos e backup. [`scripts/verify-site.mjs`](../scripts/verify-site.mjs) verifica arquivos e destinos locais.
+
+Resultado local: **12/12 testes passaram**, saída 0, sem ignorados. O verificador passou com 26 referências locais e presença do PDF; `git diff --check` não apontou problemas.
+
+Conferência em navegador: apresentação em 1280 e 390 px; ausência de rolagem horizontal nos pontos conferidos; abertura/fechamento de estudo com Escape e devolução do foco; criação, aprovação, consulta e persistência de reserva; registro de estudo, resposta e revisão de erro; exportação, reinício e restauração do backup; rejeição de backup incompatível preservando dados; recarga com progresso mantido. Nenhum erro foi registrado no console consultado. O currículo foi renderizado e conferido em uma página.
+
+As demos não equivalem à homologação dos produtos originais.
+
+## Acervo histórico
+
+BarberOS, Detailer App, Klipper e JobPilot foram preservados como históricos. As pastas antigas de evidências têm apenas `.gitkeep` e não representam capturas de execução. Planos e gaps não são somados como testes executados nesta revisão.

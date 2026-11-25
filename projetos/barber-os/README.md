@@ -1,5 +1,7 @@
 # BarberOS — Análise de QA
 
+> Registro histórico de maio de 2026; resultados são os declarados no estudo, sem reexecução nesta revisão. Os cenários selecionados não representam a taxa de defeitos do sistema inteiro. [Apresentação atual](../../README.md).
+
 ## Contexto
 
 O **BarberOS** é um sistema de gestão para barbearias utilizado **em produção por um cliente real**. O sistema abrange agendamento de clientes, registro de serviços, controle de comissões e exportação de dados financeiros.

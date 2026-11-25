@@ -1,5 +1,7 @@
 # Detailer App — README
 
+> Estudo histórico de QA em aplicativo de terceiro, de maio de 2026. Resultados e hipóteses de arquitetura são os declarados naquele levantamento, sem confirmação completa de código ou reexecução nesta revisão. Não é apresentado como desenvolvimento autoral de Ian. [Apresentação atual](../../README.md).
+
 ## 1. Descrição do Projeto
 
 **Detailer App** é uma aplicação mobile para gestão de negócios de detailing automotivo. O sistema permite gerenciar clientes, veículos, agendamentos de serviços e despesas, sendo destinado a profissionais autônomos ou pequenas empresas do segmento de estética automotiva.

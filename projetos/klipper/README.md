@@ -1,5 +1,7 @@
 # Klipper — Agenda Digital & Gestão para Barbearia
 
+> Registro histórico de maio de 2026. O levantamento inclui funcionalidades propostas ou incompletas; não certifica implantação atual. [Apresentação atual](../../README.md).
+
 ## 1. Descrição do Projeto
 
 **Klipper** é um ecossistema completo de gestão e agendamento desenvolvido como Projeto de Extensão universitária (Engenharia de Software). O sistema resolve o problema de conciliação de agendas entre agendamentos manuais (barbeiro) e automáticos (clientes via web).
@@ -222,10 +224,9 @@ Implementação em `lib/widgets/magic_bottom_nav.dart` — widget isolado que re
 
 ---
 
-## 11. Credenciais de Acesso
+## 11. Ambiente de Demonstração
 
-- **Usuário:** `admin`
-- **Senha:** `admin123`
+Credenciais de acesso não são distribuídas neste documento. Demos públicas devem usar uma base fictícia isolada do ambiente real.
 
 ---
 
