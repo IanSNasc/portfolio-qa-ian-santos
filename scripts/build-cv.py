@@ -50,14 +50,17 @@ bullet('17 testes automatizados aprovados na execução local de 25/11/2026: dom
 p('Klipper - Agendamento para barbearias','project')
 p('Projeto de extensão | Python, Flask, Flutter, APIs REST','meta')
 bullet('Desenvolvimento e análise funcional de agenda e integração; documentação de nove bugs de usabilidade, segurança e regras de negócio.')
+p('Portal de eventos culturais - Projeto acadêmico','project')
+p('Python, Flask, SQLAlchemy, MySQL | github.com/IanSNasc/meu-projeto-flask','meta')
+bullet('Projeto acadêmico para publicação de eventos e cadastro de inscrições, com rotas HTTP e modelos relacionais.')
 p('EXPERIÊNCIA','section')
 p('Auxiliar de Informática - Atacadão','project')
 p('Abril de 2024 - atual','meta')
-p('Análise e registro de incidentes, investigação de causas, monitoramento de servidores Linux e documentação de demandas. Contato entre áreas técnicas para alinhamento de soluções.')
+p('Suporte técnico a usuários, instalação e configuração de software, monitoramento de servidores Linux e apoio a permissões e backups. Registro e investigação de incidentes, documentação de demandas e comunicação entre usuários e áreas técnicas.')
 p('BASE TÉCNICA','section')
 p('<b>Desenvolvimento:</b> React, JavaScript/TypeScript, Python, SQL, APIs REST, Supabase, Git.<br/><b>Qualidade:</b> testes funcionais e exploratórios, Vitest, CodeceptJS, Postman, BDD/Gherkin e regressão. Playwright presente nos cenários do CondoSphere.')
 p('FORMAÇÃO E CAPACITAÇÃO','section')
-p('<b>Engenharia de Software</b> - Universidade Pitágoras Unopar Anhanguera (EAD)<br/>2024-2027 | Em andamento.<br/><b>QA Starter &amp; QA API</b> - QAzando | Certificação por módulo concluído.<br/><b>Inglês:</b> intermediário.')
+p('<b>Engenharia de Software</b> - Universidade Pitágoras Unopar Anhanguera (EAD)<br/>2024-2027 | Em andamento. Conclusão prevista: julho de 2027.<br/><b>QA Starter &amp; QA API</b> - QAzando | Certificação por módulo concluído.<br/><b>Inglês:</b> intermediário.')
 
 out = ROOT / 'docs/cv/Ian-Santos-Desenvolvimento.pdf'
 def decorate(canvas, doc):

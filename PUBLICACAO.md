@@ -28,5 +28,5 @@ Referência: [workflows personalizados do GitHub Pages](https://docs.github.com/
 - O workflow publica somente `docs/`, não o repositório inteiro.
 - Não inserir configurações privadas, tokens, bases de clientes ou relatórios internos no site.
 - Atualizar `evidencias/` quando uma nova execução alterar afirmações sobre validação.
-- O currículo usa dados da versão de outubro/2026; conferir vínculo profissional, formação e idiomas ao atualizar.
+- O currículo consolida as versões fornecidas pelo autor; conferir vínculo profissional, formação e idiomas ao atualizar.
 - O README de perfil antigo usa `WildDuck-exe`, enquanto o login conectado é `IanSNasc`. `PERFIL-GITHUB.md` corrige os links. Um README especial de perfil requer repositório público com o nome do login atual; não houve criação/renomeação nesta revisão.

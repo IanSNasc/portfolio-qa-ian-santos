@@ -14,6 +14,8 @@ Meu foco profissional é **desenvolvimento de software, com destaque para qualid
 
 O código de CondoSphere e Foco PMBA permanece privado. As demonstrações foram implementadas separadamente, com dados fictícios e escopo reduzido; não redistribuem bancos, configurações ou credenciais desses projetos.
 
+Também há um [projeto acadêmico de eventos culturais](projetos/eventos-culturais/README.md), com Python/Flask, SQLAlchemy e MySQL, cujo código público foi inspecionado. Ele complementa os três casos principais.
+
 ## Apresentação web e demonstrações
 
 O site está em [docs/](docs/). Usa HTML, CSS e módulos JavaScript sem framework, dependências externas ou compilação.
@@ -41,7 +43,7 @@ A publicação no GitHub Pages está preparada em [.github/workflows/pages.yml](
 
 O uso de IA faz parte do desenvolvimento dos projetos e da preparação deste portfólio. A apresentação diferencia apoio à implementação, decisões de produto, revisão e validação. Não atribui autonomia ou domínio de uma ferramenta apenas porque ela aparece nas dependências.
 
-O contexto de desenvolvimento contém uso do Codex e documentação de skills do Antigravity. A relação completa das ferramentas e a divisão de trabalho por etapa dependem de confirmação do autor; não há métricas de produtividade atribuídas a IA.
+O contexto de desenvolvimento contém uso do Codex e documentação de skills do Antigravity. A relação completa das ferramentas e a divisão de trabalho por etapa dependem de confirmação do autor; não há métricas de produtividade atribuídas a IA. A apresentação prioriza trabalhos recentes que o autor consiga demonstrar e explicar.
 
 ## Qualidade e resultados verificáveis
 
@@ -66,8 +68,8 @@ Também mantenho um [projeto inicial de automação com CodeceptJS](https://gith
 
 ## Formação e experiência
 
-- Engenharia de Software — Universidade Pitágoras Unopar Anhanguera, 2024–2027, em andamento.
-- Auxiliar de Informática no Atacadão desde abril de 2024, conforme currículo de outubro de 2026.
+- Engenharia de Software — Universidade Pitágoras Unopar Anhanguera, 2024–2027, em andamento; conclusão prevista para julho de 2027.
+- Auxiliar de Informática no Atacadão desde abril de 2024, com suporte a usuários, configuração de software, servidores Linux e rotinas de documentação, conforme os currículos fornecidos.
 - Trilha QA Starter & QA API — QAzando, certificação por módulo concluído.
 - Inglês intermediário, conforme autodeclaração no currículo anterior.
 
