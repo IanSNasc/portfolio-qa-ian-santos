@@ -12,7 +12,7 @@ Meu foco profissional é **desenvolvimento de software, com destaque para qualid
 | [Foco PMBA](projetos/foco-pmba/README.md) | Organizar sessões, prática, erros, revisões e progresso de estudos | React, JavaScript, Vite, PWA, Node Test | Aplicação pessoal; 17 testes locais aprovados em 25/11/2026 |
 | [Klipper](projetos/klipper/README.md) | Projeto de extensão de agendamento para barbearias; desenvolvimento e análise da integração | Python, Flask, Flutter, APIs REST | Diagnóstico histórico com problemas e melhorias documentados |
 
-O código de CondoSphere e Foco PMBA permanece privado. As demonstrações foram implementadas separadamente, com dados fictícios e escopo reduzido; não redistribuem bancos, configurações ou credenciais desses projetos.
+O código de CondoSphere e Foco PMBA permanece privado. A vitrine usa capturas das interfaces originais e links para a demonstração pública do CondoSphere e a aplicação Foco PMBA já publicada. Não redistribui bancos, configurações ou credenciais dos projetos.
 
 Também há um [projeto acadêmico de eventos culturais](projetos/eventos-culturais/README.md), com Python/Flask, SQLAlchemy e MySQL, cujo código público foi inspecionado. Ele complementa os três casos principais.
 
@@ -20,9 +20,12 @@ Também há um [projeto acadêmico de eventos culturais](projetos/eventos-cultur
 
 O site está em [docs/](docs/). Usa HTML, CSS e módulos JavaScript sem framework, dependências externas ou compilação.
 
-- **CondoSphere:** simulação local de reservas. Morador solicita/cancela, gestão aprova/rejeita e portaria consulta as aprovadas. A troca de perfil não é autenticação real.
-- **Foco PMBA:** registro de estudo, três questões didáticas, revisão de erros, persistência e backup validado. Não representa prova ou edital oficial.
+- **CondoSphere:** capturas e acesso à [demonstração pública do próprio projeto](https://condosphere.netlify.app/demo/gestao), com moradores, unidades, comunicados, portaria e reservas fictícios.
+- **Foco PMBA:** capturas e acesso à [aplicação original publicada](https://pm-sp-questoes.web.app/), com painel, prática por matéria, aulas e revisão.
+- **Klipper:** capturas originais do app Flutter, provenientes das imagens já existentes no repositório.
 - **Currículo:** [versão web](docs/cv/index.html) e [PDF em português](docs/cv/Ian-Santos-Desenvolvimento.pdf), voltados a desenvolvimento.
+
+A [origem das capturas](docs/assets/screenshots/ORIGEM.md) é documentada. Os exemplos independentes anteriores em `docs/demos/` permanecem como material didático; deixaram de ser a apresentação principal dos aplicativos. Os 12 testes desses exemplos não validam as aplicações externas.
 
 Para conferir localmente, com Node instalado:
 

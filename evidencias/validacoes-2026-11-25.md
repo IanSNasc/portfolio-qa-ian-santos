@@ -34,3 +34,10 @@ As demos não equivalem à homologação dos produtos originais.
 ## Acervo histórico
 
 BarberOS, Detailer App, Klipper e JobPilot foram preservados como históricos. As pastas antigas de evidências têm apenas `.gitkeep` e não representam capturas de execução. Planos e gaps não são somados como testes executados nesta revisão.
+
+
+## Revisão da apresentação visual
+
+A vitrine passou a usar seis capturas reais de CondoSphere, Foco PMBA e Klipper. CondoSphere e Foco PMBA foram abertos em seus endereços publicados para observar as telas; não houve login, criação de reserva ou envio de respostas. O registro anterior de 17 testes continua vinculado ao commit inspecionado, sem certificar toda a versão publicada atual.
+
+A nova vitrine passou no verificador com 28 referências locais. As galerias carregaram as imagens originais; layout conferido em desktop e 390 px, sem rolagem horizontal no ponto observado. A consulta ao console da prévia não registrou erros.

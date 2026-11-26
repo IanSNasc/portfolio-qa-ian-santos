@@ -5,7 +5,7 @@ Estudante de Engenharia de Software, com foco em **desenvolvimento e qualidade**
 ## Projetos
 
 - **CondoSphere:** projeto pessoal de gestão condominial com React, TypeScript, Supabase e PostgreSQL. Preparação para piloto; código privado.
-- **Foco PMBA:** organização de estudos com React, JavaScript, PWA e progresso local. Código privado; demo reduzida no portfólio.
+- **Foco PMBA:** organização de estudos com React, JavaScript, PWA e progresso local. Código privado; aplicação publicada apresentada no portfólio.
 - **[Klipper](https://github.com/IanSNasc/projeto-extensao-2-klipper):** extensão universitária de agendamento com Python/Flask e Flutter.
 - **[Portfólio técnico](https://github.com/IanSNasc/portfolio-qa-ian-santos):** decisões, demonstrações, validações e estudos de QA.
 - **[Automação inicial](https://github.com/IanSNasc/qa-primeiros-testes-automatizados):** JavaScript/CodeceptJS em cenários de login.

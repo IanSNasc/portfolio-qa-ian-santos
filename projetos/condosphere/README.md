@@ -35,3 +35,8 @@ O relatório registra preparação de SMTP, cadastro do condomínio e homologaç
 ## Demonstração pública
 
 [`docs/demos/condosphere/`](../../docs/demos/condosphere/) é uma simulação nova e independente de reservas, com dados fictícios, três perfis e persistência local. Não usa credenciais, API ou banco privado. Os botões de perfil não demonstram segurança de backend, RLS ou concorrência real no banco.
+
+
+## Interface original na vitrine
+
+O portfólio agora mostra capturas da demonstração pública do próprio CondoSphere e abre essa interface original. Os dados da demonstração são fictícios. [Abrir projeto](https://condosphere.netlify.app/demo/gestao). As capturas têm origem e data registradas em `docs/assets/screenshots/ORIGEM.md`. Os exemplos independentes descritos acima foram preservados como material didático, sem ocupar a apresentação principal.
