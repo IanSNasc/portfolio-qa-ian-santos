@@ -31,6 +31,8 @@ A apresentação concentra cada projeto em um único bloco: CondoSphere em desta
 
 O estilo inclui entradas ao rolar, transições entre capturas, profundidade ao passar o mouse, cabeçalho fixo com indicação de seção e progresso de leitura. Os efeitos respeitam `prefers-reduced-motion`; os movimentos de ponteiro são limitados a dispositivos com mouse. Não há reprodução automática.
 
+O [estudo de caso do CondoSphere](docs/casos/condosphere/) aprofunda o problema de confundir falha de consulta com ausência de documentos. Apresenta o papel na criação e evolução do projeto, um modelo interativo de cinco estados e a evidência registrada de 15 testes da suíte específica: 14 aprovados e uma falha. A execução completa e seus limites continuam explícitos.
+
 Para conferir localmente, com Node instalado:
 
 ```bash

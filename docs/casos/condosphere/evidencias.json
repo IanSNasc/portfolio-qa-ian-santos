@@ -1,0 +1,37 @@
+{
+  "projeto": "CondoSphere",
+  "recorte": "Feedback de consultas e autoatendimento do profissional",
+  "commit": "303c81c5f47663455868b71defe7a3d44f019dcc",
+  "dataExecucao": "2026-11-25",
+  "tipo": "Resumo público da execução local registrada; não é uma nova execução",
+  "comando": "node node_modules/vitest/vitest.mjs run --maxWorkers=2 --reporter=json --outputFile=<relatorio-local>",
+  "suite": "tests/regression/professional-selfservice-feedback.test.tsx",
+  "rotulos": "Nomes editoriais resumidos dos cenários; o arquivo não redistribui código nem o relatório bruto.",
+  "total": 15,
+  "aprovados": 14,
+  "falhas": 1,
+  "cenarios": [
+    { "nome": "Carga inicial e dependência do cadastro", "resultado": "falhou", "observacao": "A expectativa de argumento na consulta do cadastro divergiu da chamada observada. A causa não foi classificada nesta revisão." },
+    { "nome": "Lista vazia confirmada produz quantidade zero", "resultado": "aprovado" },
+    { "nome": "Falha parcial não inventa progresso ou ausência", "resultado": "aprovado" },
+    { "nome": "Cada lista pode ser recuperada independentemente", "resultado": "aprovado" },
+    { "nome": "Falha de atualização preserva os indicadores conhecidos", "resultado": "aprovado" },
+    { "nome": "Painel diferencia falha de cadastro de cadastro inexistente", "resultado": "aprovado" },
+    { "nome": "Documentos diferenciam falha de cadastro de cadastro inexistente", "resultado": "aprovado" },
+    { "nome": "Ausência confirmada de cadastro não consulta documentos", "resultado": "aprovado" },
+    { "nome": "Carga e falha de documentos não recebem indicação de não enviados", "resultado": "aprovado" },
+    { "nome": "Recuperação de documentos preserva arquivo, tipo e instituição em edição", "resultado": "aprovado" },
+    { "nome": "Recuperação do cadastro preserva formulário e documentos conhecidos", "resultado": "aprovado" },
+    { "nome": "Arquivo selecionado só é limpo após envio bem-sucedido", "resultado": "aprovado" },
+    { "nome": "Troca de usuário descarta rascunho e documentos anteriores", "resultado": "aprovado" },
+    { "nome": "Resposta atrasada da conta anterior não reaparece na nova conta", "resultado": "aprovado" },
+    { "nome": "Perfil bloqueado não recebe o formulário de documentos", "resultado": "aprovado" }
+  ],
+  "execucaoCompleta": { "testes": 837, "aprovados": 790, "falhas": 47, "arquivos": 101, "arquivosComFalha": 9, "codigoSaida": 1 },
+  "limites": [
+    "Testes de hooks e componentes com serviços simulados, jsdom e dependências localizadas.",
+    "Não houve correção de código do produto nem nova execução da suíte para criar este estudo.",
+    "Não comprova homologação autenticada, comportamento em produção ou testes completos em aparelhos reais.",
+    "O diagrama interativo do portfólio é uma explicação didática; não executa o aplicativo original."
+  ]
+}

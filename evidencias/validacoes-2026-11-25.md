@@ -41,3 +41,11 @@ BarberOS, Detailer App, Klipper e JobPilot foram preservados como históricos. A
 A vitrine passou a usar seis capturas reais de CondoSphere, Foco PMBA e Klipper. CondoSphere e Foco PMBA foram abertos em seus endereços publicados para observar as telas; não houve login, criação de reserva ou envio de respostas. O registro anterior de 17 testes continua vinculado ao commit inspecionado, sem certificar toda a versão publicada atual.
 
 A nova vitrine passou no verificador com 28 referências locais. As galerias carregaram as imagens originais; layout conferido em desktop e 390 px, sem rolagem horizontal no ponto observado. A consulta ao console da prévia não registrou erros.
+
+## Estudo de caso do CondoSphere
+
+Foi criada uma página em `docs/casos/condosphere/`, ligada à vitrine e à seção de qualidade. Ela apresenta o papel confirmado pelo autor — criação do projeto do zero e evolução progressiva, com apoio de IA e ajustes em documentos, notificações, funções e telas — e aprofunda os estados de consulta no painel do profissional.
+
+A revisão do relatório local já existente identificou **15 testes em `professional-selfservice-feedback.test.tsx`: 14 aprovados e uma falha**. A falha é a expectativa de argumento da consulta do cadastro. O resumo JSON público e a tabela da página preservam esses resultados, com nomes editoriais resumidos. Não houve nova execução da suíte do produto nem alteração no código do CondoSphere para elaborar o estudo.
+
+Validação do portfólio: sintaxe JavaScript e verificador aprovados, com **47 referências locais**; os 12 testes dos exemplos arquivados continuam aprovados. No navegador, foram conferidos desktop e larguras de 390 e 320 px, cinco cenários do modelo de estados, seleção pelo teclado, 15 linhas de evidências (14 aprovadas e uma falha), abertura dos detalhes e navegação da vitrine para o caso. Sem rolagem lateral ou erros de console observados. O modelo é didático e não executa o aplicativo original.

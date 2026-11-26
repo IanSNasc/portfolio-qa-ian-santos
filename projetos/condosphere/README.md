@@ -1,6 +1,6 @@
 # CondoSphere — Desenvolvimento de um SaaS condominial
 
-**Papel:** projeto pessoal desenvolvido com apoio de IA. **Foco:** desenvolvimento e qualidade dos fluxos. **Código:** privado. **Referência:** commit `303c81c5f47663455868b71defe7a3d44f019dcc`.
+**Papel:** criação do projeto do zero e evolução progressiva do produto, com apoio de IA. O trabalho envolveu ajustes em anexos de documentos, notificações, funções e telas. **Foco:** desenvolvimento e qualidade dos fluxos. **Código:** privado. **Referência técnica:** commit `303c81c5f47663455868b71defe7a3d44f019dcc`.
 
 ## Problema
 
@@ -19,6 +19,8 @@ O currículo anterior descreve desenvolvimento independente com apoio de IA, cri
 ## Decisão técnica demonstrável
 
 [Falha na consulta não é ausência de documentos](feedback-documentos.md): separar carga, vazio confirmado, falha e atualização parcial evita informar que dados existentes desapareceram.
+
+O [estudo de caso navegável](../../docs/casos/condosphere/) apresenta contexto, papel no projeto, um modelo interativo dos estados e os resultados de 15 cenários da suíte de regressão: 14 aprovados e uma falha no registro consultado. O diagrama é didático; não é uma captura nem uma execução do aplicativo. O conteúdo público não redistribui código privado.
 
 ## Testes e estado atual
 

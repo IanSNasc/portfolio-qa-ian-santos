@@ -16,6 +16,12 @@ A vitrine usa `docs/assets/showcase.js` para os metadados das seis capturas, `do
 
 Os exemplos didáticos arquivados em `docs/demos/` têm seus próprios fluxos de reservas, estudos, persistência e backup. Seus testes não validam os aplicativos originais externos.
 
+## Estudo de caso do CondoSphere
+
+Abra `casos/condosphere/` na prévia. Os links da vitrine e da seção de qualidade levam ao mesmo estudo. Confira os cinco cenários do modelo interativo, seus estados `aria-pressed`, a navegação por teclado, a tabela expansível dos 15 resultados e o resumo em `evidencias.json`. Os caminhos usam o subdiretório do projeto no GitHub Pages.
+
+O resumo tem 14 aprovações e uma falha da execução já registrada no commit `303c81c`. Criar ou conferir o estudo não equivale a executar novamente os testes do produto. Ao atualizar os resultados, confira também a tabela estática e a documentação em `projetos/condosphere/`.
+
 ## Configuração inicial
 
 1. No repositório, abra **Settings → Pages**.
