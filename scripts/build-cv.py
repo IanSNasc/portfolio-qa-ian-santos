@@ -1,77 +1,126 @@
-"""Generate the reviewed Portuguese CV; requires reportlab and a local Arial font."""
+"""Build the one-page portfolio CV. Requires ReportLab."""
 from pathlib import Path
-from reportlab.lib import colors
-from reportlab.lib.enums import TA_LEFT
+
+from reportlab.lib.colors import HexColor
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, KeepTogether
+from reportlab.pdfgen.canvas import Canvas
+from reportlab.platypus import Paragraph
 
 ROOT = Path(__file__).resolve().parents[1]
-FONT_DIR = Path('C:/Windows/Fonts')
-if (FONT_DIR / 'arial.ttf').exists():
-    pdfmetrics.registerFont(TTFont('Body', str(FONT_DIR / 'arial.ttf')))
-    pdfmetrics.registerFont(TTFont('BodyBold', str(FONT_DIR / 'arialbd.ttf')))
-    pdfmetrics.registerFontFamily('Body', normal='Body', bold='BodyBold', italic='Body', boldItalic='BodyBold')
-else:
-    pdfmetrics.registerFontFamily('Helvetica', normal='Helvetica', bold='Helvetica-Bold')
-BODY = 'Body' if (FONT_DIR / 'arial.ttf').exists() else 'Helvetica'
-BOLD = 'BodyBold' if BODY == 'Body' else 'Helvetica-Bold'
-INK = colors.HexColor('#101b2d')
-MUTED = colors.HexColor('#43516a')
-styles = {
-    'name': ParagraphStyle('name', fontName=BOLD, fontSize=25, leading=28, textColor=INK, spaceAfter=5),
-    'subtitle': ParagraphStyle('subtitle', fontName=BOLD, fontSize=11, leading=15, textColor=INK, spaceAfter=6),
-    'contact': ParagraphStyle('contact', fontName=BODY, fontSize=8.7, leading=12, textColor=MUTED, spaceAfter=13),
-    'body': ParagraphStyle('body', fontName=BODY, fontSize=9.3, leading=13.3, textColor=INK, spaceAfter=6),
-    'section': ParagraphStyle('section', fontName=BOLD, fontSize=9, leading=13, textColor=colors.HexColor('#294cc5'), spaceBefore=12, spaceAfter=7),
-    'project': ParagraphStyle('project', fontName=BOLD, fontSize=10, leading=14, textColor=INK, spaceBefore=4, spaceAfter=2),
-    'meta': ParagraphStyle('meta', fontName=BODY, fontSize=8.4, leading=11.5, textColor=MUTED, spaceAfter=5),
-    'bullet': ParagraphStyle('bullet', fontName=BODY, fontSize=9.1, leading=12.7, textColor=INK, leftIndent=9, firstLineIndent=-8, spaceAfter=3),
-}
-story=[]
-def p(text,style='body'): story.append(Paragraph(text,styles[style]))
-def bullet(text): p('- '+text,'bullet')
-p('Ian Santos','name')
-p('Desenvolvimento de Software | Qualidade | Aplicações Web','subtitle')
-p('Salvador, BA | <link href="mailto:ian.s4ntos@gmail.com">ian.s4ntos@gmail.com</link><br/><link href="https://github.com/IanSNasc">github.com/IanSNasc</link> | <link href="https://www.linkedin.com/in/ian-santos-qa">linkedin.com/in/ian-santos-qa</link>','contact')
-p('Estudante de Engenharia de Software com projetos próprios em desenvolvimento web assistido por IA. Prática conectando interface, regras de negócio, APIs e dados, com revisão e testes nas entregas. Busco oportunidade em desenvolvimento de software, com destaque para qualidade.')
-p('PROJETOS EM DESTAQUE','section')
-p('CondoSphere - SaaS de gestão condominial','project')
-p('Projeto pessoal com apoio de IA | React, TypeScript, Supabase, PostgreSQL, Vitest','meta')
-bullet('Desenvolvimento de fluxos de unidades, moradores, portaria, reservas e comunicados, com diferentes perfis de acesso.')
-bullet('Organização de componentes, hooks e services; validação de permissões e políticas RLS.')
-bullet('Critérios de qualidade, testes funcionais e regressão automatizada para estados de erro, cache e troca de contexto.')
-p('Foco PMBA - Organização pessoal de estudos','project')
-p('Projeto pessoal | React, JavaScript, Vite, PWA, Node Test','meta')
-bullet('Ciclo de estudo, prática de questões, revisões e progresso local; exportação e restauração de backup JSON.')
-bullet('17 testes automatizados aprovados na execução local de 25/11/2026: domínio, filtros, respostas e preservação de dados.')
-p('Klipper - Agendamento para barbearias','project')
-p('Projeto de extensão | Python, Flask, Flutter, APIs REST','meta')
-bullet('Desenvolvimento e análise funcional de agenda e integração; documentação de nove bugs de usabilidade, segurança e regras de negócio.')
-p('Portal de eventos culturais - Projeto acadêmico','project')
-p('Python, Flask, SQLAlchemy, MySQL | github.com/IanSNasc/meu-projeto-flask','meta')
-bullet('Projeto acadêmico para publicação de eventos e cadastro de inscrições, com rotas HTTP e modelos relacionais.')
-p('EXPERIÊNCIA','section')
-p('Auxiliar de Informática - Atacadão','project')
-p('Abril de 2024 - atual','meta')
-p('Suporte técnico a usuários, instalação e configuração de software, monitoramento de servidores Linux e apoio a permissões e backups. Registro e investigação de incidentes, documentação de demandas e comunicação entre usuários e áreas técnicas.')
-p('BASE TÉCNICA','section')
-p('<b>Desenvolvimento:</b> React, JavaScript/TypeScript, Python, SQL, APIs REST, Supabase, Git.<br/><b>Qualidade:</b> testes funcionais e exploratórios, Vitest, CodeceptJS, Postman, BDD/Gherkin e regressão. Playwright presente nos cenários do CondoSphere.')
-p('FORMAÇÃO E CAPACITAÇÃO','section')
-p('<b>Engenharia de Software</b> - Universidade Pitágoras Unopar Anhanguera (EAD)<br/>2024-2027 | Em andamento. Conclusão prevista: julho de 2027.<br/><b>QA Starter &amp; QA API</b> - QAzando | Certificação por módulo concluído.<br/><b>Inglês:</b> intermediário.')
+OUTPUT = ROOT / "docs/cv/Ian-Santos-Desenvolvimento.pdf"
+PORTFOLIO = "https://iansnasc.github.io/portfolio-qa-ian-santos/"
+WIDTH, HEIGHT = A4
+MARGIN = 37
+TEXT_WIDTH = WIDTH - 2 * MARGIN
+NAVY = "#132436"
+INK = "#192C39"
+MUTED = "#425866"
+TEAL = "#17604E"
+MINT = "#BEE9AC"
+PAPER = "#F1F6F2"
+LINE = "#C7D6D1"
+REGULAR, BOLD = "Helvetica", "Helvetica-Bold"
+fonts = Path("C:/Windows/Fonts")
+if (fonts / "segoeui.ttf").is_file() and (fonts / "segoeuib.ttf").is_file():
+    REGULAR, BOLD = "SegoeUI", "SegoeUI-Bold"
+    pdfmetrics.registerFont(TTFont(REGULAR, str(fonts / "segoeui.ttf")))
+    pdfmetrics.registerFont(TTFont(BOLD, str(fonts / "segoeuib.ttf")))
+pdfmetrics.registerFontFamily(REGULAR, normal=REGULAR, bold=BOLD)
 
-out = ROOT / 'docs/cv/Ian-Santos-Desenvolvimento.pdf'
-def decorate(canvas, doc):
-    canvas.setTitle('Ian Santos - Desenvolvimento de Software')
-    canvas.setAuthor('Ian Santos')
-    canvas.setStrokeColor(colors.HexColor('#dce3ec'))
-    canvas.line(42,36,A4[0]-42,36)
-    canvas.setFont(BODY,7.5)
-    canvas.setFillColor(MUTED)
-    canvas.drawString(42,24,'Ian Santos | Desenvolvimento de Software & Qualidade')
-    canvas.drawRightString(A4[0]-42,24,str(doc.page))
-doc = SimpleDocTemplate(str(out),pagesize=A4,rightMargin=42,leftMargin=42,topMargin=34,bottomMargin=47)
-doc.build(story,onFirstPage=decorate,onLaterPages=decorate)
-print(out)
+canvas = Canvas(str(OUTPUT), pagesize=A4, invariant=True)
+canvas.setTitle("Ian Santos | Desenvolvimento de software e qualidade")
+canvas.setAuthor("Ian Santos")
+canvas.setSubject("Currículo profissional")
+
+
+def text(top, content, *, x=MARGIN, width=TEXT_WIDTH, size=10.4,
+         leading=14.1, color=INK, bold=False):
+    style = ParagraphStyle("text", fontName=BOLD if bold else REGULAR,
+                           fontSize=size, leading=leading, textColor=HexColor(color))
+    paragraph = Paragraph(content, style)
+    _, height = paragraph.wrap(width, HEIGHT)
+    paragraph.drawOn(canvas, x, HEIGHT - top - height)
+    return top + height
+
+
+def section(top, label):
+    canvas.setStrokeColor(HexColor(LINE))
+    canvas.line(MARGIN, HEIGHT - top, WIDTH - MARGIN, HEIGHT - top)
+    return text(top + 6, label, size=12, leading=16, bold=True, color=TEAL) + 6
+
+
+def project(top, title, stack, description):
+    top = text(top, title, size=11.5, leading=15, bold=True)
+    top = text(top + 1, stack, size=9.2, leading=12.4, color=MUTED)
+    return text(top + 2, description) + 7
+
+
+def link(url, label):
+    return f'<link href="{url}"><u>{label}</u></link>'
+
+
+canvas.setFillColor(HexColor(NAVY))
+canvas.rect(0, HEIGHT - 137, WIDTH, 137, fill=1, stroke=0)
+canvas.setFillColor(HexColor(MINT))
+canvas.rect(MARGIN, HEIGHT - 23, 29, 3, fill=1, stroke=0)
+text(28, "Ian Santos", size=32, leading=39, color="#FFFFFF", bold=True)
+text(70, "Desenvolvimento de software e qualidade", size=15, leading=20, color=MINT)
+contact = "Salvador, BA &nbsp; · &nbsp; " + link("mailto:ian.s4ntos@gmail.com", "ian.s4ntos@gmail.com")
+text(99, contact, size=10, leading=13, color="#FFFFFF")
+links = [link(PORTFOLIO, "Portfólio"), link("https://github.com/IanSNasc", "GitHub"),
+         link("https://www.linkedin.com/in/ian-santos-qa", "LinkedIn")]
+text(115, " &nbsp; · &nbsp; ".join(links), size=10, leading=13, color="#FFFFFF")
+
+y = text(151, "Estudo Engenharia de Software e desenvolvo aplicações web com apoio de IA. "
+         "Trabalho com suporte de informática e busco uma oportunidade em desenvolvimento "
+         "para aplicar minha experiência com investigação de falhas e testes de software.")
+y = section(y + 11, "Projetos")
+panel_top = y
+panel_height = 108
+canvas.setFillColor(HexColor(PAPER))
+canvas.roundRect(MARGIN, HEIGHT - y - panel_height, TEXT_WIDTH, panel_height, 6, fill=1, stroke=0)
+detail = dict(x=MARGIN + 13, width=TEXT_WIDTH - 26)
+y = text(y + 7, "CondoSphere", size=15, leading=19, bold=True, **detail)
+y = text(y + 1, "Gestão condominial · React, TypeScript, Supabase, PostgreSQL e Vitest",
+         size=9.2, leading=13, color=TEAL, **detail)
+y = text(y + 2, "Criei o sistema do zero com apoio de IA. Desenvolvi fluxos de reservas, portaria e "
+         "comunicados com diferentes permissões. No painel de documentos, investiguei falhas de "
+         "consulta e testei a preservação de dados e a troca de conta.", **detail)
+y = text(y + 2, link(PORTFOLIO + "casos/condosphere/", "Consultar estudo de caso e testes"),
+         size=9.3, leading=12, color=TEAL, **detail)
+if y > panel_top + panel_height - 3:
+    raise ValueError("CondoSphere text exceeds the highlighted area")
+
+y = project(panel_top + panel_height + 8, "Foco PMBA", "Projeto pessoal · React, JavaScript, Vite e PWA",
+            "Criei o aplicativo para estudar para a Polícia Militar da Bahia, praticar questões e revisar erros. "
+            "Na execução local de 25/11/2026, os 17 testes de domínio, filtros, respostas e progresso passaram.")
+y = project(y, "Klipper", "Projeto de extensão · Python, Flask, Flutter e APIs REST",
+            "Desenvolvi e analisei fluxos de agendamento para barbearias. Documentei nove falhas de "
+            "usabilidade, segurança e regras de negócio.")
+y = project(y, "Portal de eventos culturais", "Projeto acadêmico · Python, Flask, SQLAlchemy e MySQL",
+            "Implementei rotas e modelos relacionais para publicar eventos e cadastrar inscrições. "
+            + link("https://github.com/IanSNasc/meu-projeto-flask", "Ver código"))
+
+y = section(y + 2, "Experiência")
+y = text(y, "Auxiliar de Informática · Atacadão", bold=True, size=11.5, leading=15)
+y = text(y + 1, "Desde abril de 2024", size=9.2, leading=12.4, color=MUTED)
+y = text(y + 2, "Presto suporte aos usuários, monitoro servidores Linux e apoio rotinas de backup e permissões. "
+         "Investigo incidentes, documento demandas e valido sistemas após manutenções.")
+
+y = section(y + 10, "Formação e capacitação")
+y = text(y, "<b>Engenharia de Software</b> · Universidade Pitágoras Unopar Anhanguera (EAD)")
+y = text(y, "2024 a 2027 · Conclusão prevista para julho de 2027", color=MUTED, size=9.5, leading=13)
+y = text(y + 2, "<b>QAzando</b> · Trilhas QA Starter e QA API · Certificação por módulo. &nbsp; <b>Inglês</b> · Intermediário.")
+
+y = section(y + 10, "Competências técnicas")
+y = text(y, "<b>Desenvolvimento</b> · React, JavaScript, TypeScript, Python, SQL, APIs REST, Supabase e Git.")
+y = text(y + 2, "<b>Qualidade</b> · Testes funcionais, exploratórios e de regressão, Vitest, CodeceptJS, "
+         "Playwright, Postman e BDD/Gherkin.")
+if y > HEIGHT - 22:
+    raise ValueError(f"CV content exceeds the printable area ({y:.1f} pt)")
+canvas.showPage()
+canvas.save()
+print(OUTPUT)
