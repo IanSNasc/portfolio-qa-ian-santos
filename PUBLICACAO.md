@@ -10,7 +10,11 @@ node scripts/verify-site.mjs
 node scripts/serve.mjs
 ```
 
-Abra a URL impressa. Confira mobile, teclado, estudos, reservas, estudos, persistência e backup.
+Abra a URL impressa. Confira desktop e celular, os seletores de projeto da abertura e da galeria, as miniaturas, os links externos e o currículo. Na ampliação, confira os botões Anterior/Próxima, as setas do teclado, Escape e o retorno do foco. Abra uma imagem também por dentro de um estudo de caso.
+
+A vitrine usa `docs/assets/showcase.js` para os metadados das seis capturas e `docs/assets/showcase.css` para a apresentação. As imagens mantêm a proporção original. Sem JavaScript, as capturas estáticas e os links dos projetos continuam disponíveis; os controles interativos dependem de JavaScript.
+
+Os exemplos didáticos arquivados em `docs/demos/` têm seus próprios fluxos de reservas, estudos, persistência e backup. Seus testes não validam os aplicativos originais externos.
 
 ## Configuração inicial
 

@@ -27,6 +27,8 @@ O site está em [docs/](docs/). Usa HTML, CSS e módulos JavaScript sem framewor
 
 A [origem das capturas](docs/assets/screenshots/ORIGEM.md) é documentada. Os exemplos independentes anteriores em `docs/demos/` permanecem como material didático; deixaram de ser a apresentação principal dos aplicativos. Os 12 testes desses exemplos não validam as aplicações externas.
 
+A abertura permite alternar entre os três projetos. A seção **Telas** reúne seis capturas com miniaturas, contexto e links para as aplicações ou o repositório. Clique para ampliar; use os botões ou as setas do teclado para navegar e Escape para fechar. A apresentação mantém as proporções das interfaces web e mobile.
+
 Para conferir localmente, com Node instalado:
 
 ```bash
