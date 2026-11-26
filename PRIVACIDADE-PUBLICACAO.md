@@ -12,7 +12,7 @@ Essas correções estão na revisão do portfólio. Elas não reescrevem commits
 
 ## Conteúdo intencionalmente público
 
-Nome, cidade/estado, contato profissional, links GitHub e LinkedIn, formação e experiência profissional foram mantidos para a finalidade do portfólio e do currículo. O verificador permite somente o e-mail profissional já usado na apresentação e endereços de exemplo reservados pela regra. Ele não serve para decidir sozinho se um dado pessoal pode ser publicado.
+Nome, cidade/estado, contato profissional, links GitHub e LinkedIn, formação e experiência profissional foram mantidos para a finalidade do portfólio e do currículo. O botão de WhatsApp usa o telefone autorizado pelo titular para contato profissional. O número integra o endereço público do link. O verificador permite somente o e-mail profissional já usado na apresentação e endereços de exemplo reservados pela regra. Ele não serve para decidir sozinho se um dado pessoal pode ser publicado.
 
 As capturas foram revistas visualmente: CondoSphere usa a demonstração explicitamente fictícia; Foco PMBA mostra o estado inicial de estudos; Klipper mostra agenda vazia e configuração de expediente. A [origem das imagens](docs/assets/screenshots/ORIGEM.md) continua registrada. Não foram identificados dados de moradores ou clientes reais nos elementos observados.
 
