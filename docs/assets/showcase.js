@@ -1,7 +1,7 @@
 const projects = {
   condosphere: {
     title: 'CondoSphere', category: 'GESTÃO CONDOMINIAL', summary: 'Gestão condominial · React + TypeScript',
-    url: 'https://condosphere.netlify.app/demo/gestao', link: 'Abrir demonstração ↗',
+    url: 'https://condosphere.netlify.app/demo/gestao', link: 'Abrir demonstração',
     provenance: 'Captura da demonstração pública · 25/11/2026',
     screens: [
       { file: 'condosphere-visao-geral.jpg', title: 'Visão geral', alt: 'Visão geral da demonstração pública do CondoSphere', context: 'Demonstração pública com unidades, moradores, comunicados e atalhos de gestão.' },
@@ -10,7 +10,7 @@ const projects = {
   },
   pmba: {
     title: 'Foco PMBA', category: 'APLICATIVO DE ESTUDOS', summary: 'Estudos e prática · React + PWA',
-    url: 'https://pm-sp-questoes.web.app/', link: 'Abrir aplicação ↗',
+    url: 'https://pm-sp-questoes.web.app/', link: 'Abrir aplicação',
     provenance: 'Captura da aplicação publicada · 25/11/2026',
     screens: [
       { file: 'pmba-painel.jpg', title: 'Painel de estudos', alt: 'Painel original do aplicativo Foco PMBA', context: 'Ponto de partida para organizar os estudos, acompanhar o progresso e acessar a prática.' },
@@ -19,7 +19,7 @@ const projects = {
   },
   klipper: {
     title: 'Klipper', category: 'AGENDAMENTO / WEB E MOBILE', summary: 'Agendamento para barbearias · Flutter + Flask',
-    url: 'https://github.com/IanSNasc/projeto-extensao-2-klipper', link: 'Ver repositório ↗',
+    url: 'https://github.com/IanSNasc/projeto-extensao-2-klipper', link: 'Ver repositório',
     provenance: 'Capturas originais do aplicativo Flutter · Acervo do projeto',
     screens: [
       { file: 'klipper-dashboard.jpeg', title: 'Painel mobile', alt: 'Painel original do Klipper em Flutter', context: 'Painel de agendamentos do aplicativo Flutter, preservado no repositório do projeto de extensão.' },
@@ -30,68 +30,25 @@ const projects = {
 const asset = screen => `assets/screenshots/${screen.file}`;
 const allScreens = Object.values(projects).flatMap(project => project.screens.map(screen => ({ ...screen, project })));
 
-document.querySelectorAll('[data-showcase]').forEach(showcase => {
-  let selectedProject = 'condosphere';
-  let selectedScreen = 0;
-  const render = () => {
-    const project = projects[selectedProject];
-    const screen = project.screens[selectedScreen];
-    const image = showcase.querySelector('[data-screen-image]');
-    image.src = asset(screen);
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+document.querySelectorAll('[data-project-gallery]').forEach(gallery => {
+  const project = projects[gallery.dataset.projectGallery];
+  const image = gallery.querySelector('img');
+  const link = gallery.querySelector('.project-capture');
+  gallery.querySelectorAll('[data-screen-file]').forEach(button => button.addEventListener('click', () => {
+    if (button.getAttribute('aria-pressed') === 'true') return;
+    const screen = project.screens.find(item => item.file === button.dataset.screenFile);
+    const source = asset(screen);
+    image.src = source;
     image.alt = screen.alt;
-    image.width = selectedProject === 'klipper' ? 720 : 1280;
-    image.height = selectedProject === 'klipper' ? 1600 : 720;
-    showcase.dataset.mobile = String(selectedProject === 'klipper');
-    const link = showcase.querySelector('[data-screen-link]');
-    link.href = asset(screen);
-    link.setAttribute('aria-label', `Ampliar: ${screen.alt}`);
-    const textFields = {
-      'screen-name': `${project.title} / ${screen.title}`,
-      'screen-summary': project.summary,
-      'project-title': project.title,
-      'project-category': project.category,
-      'screen-context': screen.context,
-      'screen-provenance': project.provenance
-    };
-    for (const [name, value] of Object.entries(textFields)) {
-      const element = showcase.querySelector(`[data-${name}]`);
-      if (element) element.textContent = value;
-    }
-    const projectLink = showcase.querySelector('[data-project-link]');
-    projectLink.href = project.url;
-    projectLink.textContent = project.link;
-    showcase.querySelectorAll('[data-project]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.project === selectedProject)));
-    showcase.querySelectorAll('[data-screen-index]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.screenIndex) === selectedScreen)));
-    const status = showcase.querySelector('[data-gallery-status]');
-    if (status) status.textContent = `${project.title}: ${screen.title}. ${selectedScreen + 1} de ${project.screens.length} telas.`;
-  };
-  const thumbnails = showcase.querySelector('[data-screen-thumbs]');
-  const renderThumbnails = () => {
-    if (!thumbnails) return;
-    thumbnails.replaceChildren(...projects[selectedProject].screens.map((screen, index) => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.dataset.screenIndex = index;
-      button.setAttribute('aria-label', `Mostrar ${screen.title}`);
-      const image = document.createElement('img');
-      image.src = asset(screen);
-      image.alt = '';
-      image.loading = 'lazy';
-      const label = document.createElement('span');
-      label.textContent = screen.title;
-      button.append(image, label);
-      button.addEventListener('click', () => { selectedScreen = index; render(); });
-      return button;
-    }));
-  };
-  showcase.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
-    selectedProject = button.dataset.project;
-    selectedScreen = 0;
-    renderThumbnails();
-    render();
+    link.href = source;
+    link.setAttribute('aria-label', 'Ampliar: ' + screen.alt);
+    gallery.querySelectorAll('[data-screen-file]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    gallery.querySelector('[data-screen-status]').textContent = project.title + ': ' + screen.title;
+    image.decode().then(() => {
+      if (!reducedMotion.matches && image.getAttribute('src') === source) image.animate([{opacity:.3,transform:'scale(1.015)'},{opacity:1,transform:'scale(1)'}],{duration:320,easing:'ease-out'});
+    }).catch(() => {});
   }));
-  renderThumbnails();
-  render();
 });
 
 const dialog = document.querySelector('#screen-dialog');

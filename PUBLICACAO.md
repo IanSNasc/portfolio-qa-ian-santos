@@ -10,9 +10,9 @@ node scripts/verify-site.mjs
 node scripts/serve.mjs
 ```
 
-Abra a URL impressa. Confira desktop e celular, os seletores de projeto da abertura e da galeria, as miniaturas, os links externos e o currículo. Na ampliação, confira os botões Anterior/Próxima, as setas do teclado, Escape e o retorno do foco. Abra uma imagem também por dentro de um estudo de caso.
+Abra a URL impressa. Confira desktop e celular, os seletores de capturas dentro de CondoSphere e Foco PMBA, as duas telas do Klipper, os links externos e o currículo. Na ampliação, confira os botões Anterior/Próxima, as setas do teclado, Escape e o retorno do foco. Os estudos de caso apresentam o conteúdo técnico, sem repetir as capturas.
 
-A vitrine usa `docs/assets/showcase.js` para os metadados das seis capturas e `docs/assets/showcase.css` para a apresentação. As imagens mantêm a proporção original. Sem JavaScript, as capturas estáticas e os links dos projetos continuam disponíveis; os controles interativos dependem de JavaScript.
+A vitrine usa `docs/assets/showcase.js` para os metadados das seis capturas, `docs/assets/showcase.css` para a apresentação e `docs/assets/motion.js` para entradas ao rolar, profundidade com o ponteiro e indicadores de navegação. Confira a preferência de reduzir movimento, os links por teclado e o botão de voltar ao início. As imagens mantêm a proporção original. Sem JavaScript, o conteúdo, as capturas estáticas e os links dos projetos continuam disponíveis; os controles interativos dependem de JavaScript.
 
 Os exemplos didáticos arquivados em `docs/demos/` têm seus próprios fluxos de reservas, estudos, persistência e backup. Seus testes não validam os aplicativos originais externos.
 

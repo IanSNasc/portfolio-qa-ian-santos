@@ -27,7 +27,9 @@ O site está em [docs/](docs/). Usa HTML, CSS e módulos JavaScript sem framewor
 
 A [origem das capturas](docs/assets/screenshots/ORIGEM.md) é documentada. Os exemplos independentes anteriores em `docs/demos/` permanecem como material didático; deixaram de ser a apresentação principal dos aplicativos. Os 12 testes desses exemplos não validam as aplicações externas.
 
-A abertura permite alternar entre os três projetos. A seção **Telas** reúne seis capturas com miniaturas, contexto e links para as aplicações ou o repositório. Clique para ampliar; use os botões ou as setas do teclado para navegar e Escape para fechar. A apresentação mantém as proporções das interfaces web e mobile.
+A apresentação concentra cada projeto em um único bloco: CondoSphere em destaque, Foco PMBA em composição lateral e Klipper com duas telas mobile. Os seletores de CondoSphere e Foco PMBA alternam as capturas no próprio bloco. Clique para ampliar; use os botões ou as setas do teclado para navegar e Escape para fechar. Os estudos de caso aprofundam decisões e testes sem repetir a galeria.
+
+O estilo inclui entradas ao rolar, transições entre capturas, profundidade ao passar o mouse, cabeçalho fixo com indicação de seção e progresso de leitura. Os efeitos respeitam `prefers-reduced-motion`; os movimentos de ponteiro são limitados a dispositivos com mouse. Não há reprodução automática.
 
 Para conferir localmente, com Node instalado:
 
