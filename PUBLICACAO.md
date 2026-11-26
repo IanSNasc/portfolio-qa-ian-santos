@@ -13,7 +13,11 @@ node scripts/serve.mjs
 
 Abra a URL impressa. Confira desktop e celular, os seletores de capturas dentro de CondoSphere e Foco PMBA, as duas telas do Klipper, os links externos e o currículo. Na ampliação, confira os botões Anterior/Próxima, as setas do teclado, Escape e o retorno do foco. Os estudos de caso apresentam o conteúdo técnico, sem repetir as capturas.
 
-A vitrine usa `docs/assets/showcase.js` para os metadados das seis capturas, `docs/assets/showcase.css` para a apresentação e `docs/assets/motion.js` para entradas ao rolar, profundidade com o ponteiro e indicadores de navegação. Confira a preferência de reduzir movimento, os links por teclado e o botão de voltar ao início. As imagens mantêm a proporção original. Sem JavaScript, o conteúdo, as capturas estáticas e os links dos projetos continuam disponíveis; os controles interativos dependem de JavaScript.
+A página principal usa `docs/assets/portfolio.css` para sua identidade visual e `docs/assets/workbench.js` para o painel **Na prática**. `docs/assets/showcase.js` controla as seis capturas; `docs/assets/motion.js` trata entradas ao rolar, profundidade com o ponteiro e indicadores de navegação. O estudo de caso mantém sua folha de apresentação compartilhada em `showcase.css` e os arquivos próprios da pasta do caso.
+
+Confira as três abas por clique e teclado (setas, Home e End), o atalho de privacidade no CondoSphere e o foco do controle ao chegar ao painel. Ctrl+Home deve manter o comportamento de voltar ao topo da página. Verifique o modal de validações e Escape, além das capturas, links e currículo. No celular, a aba de desenvolvimento usa o rótulo visual **Construção**. Sem JavaScript, as três etapas do painel ficam legíveis em sequência e os links continuam disponíveis.
+
+Confira a preferência de reduzir movimento, os links por teclado e o botão de voltar ao início. As imagens mantêm a proporção original; nenhuma nova imagem pessoal, biblioteca externa ou rastreador foi adicionado nesta reformulação.
 
 Os exemplos didáticos arquivados em `docs/demos/` têm seus próprios fluxos de reservas, estudos, persistência e backup. Seus testes não validam os aplicativos originais externos.
 

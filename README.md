@@ -27,7 +27,9 @@ O site está em [docs/](docs/). Usa HTML, CSS e módulos JavaScript sem framewor
 
 A [origem das capturas](docs/assets/screenshots/ORIGEM.md) é documentada. Os exemplos independentes anteriores em `docs/demos/` permanecem como material didático; deixaram de ser a apresentação principal dos aplicativos. Os 12 testes desses exemplos não validam as aplicações externas.
 
-A apresentação concentra cada projeto em um único bloco: CondoSphere em destaque, Foco PMBA em composição lateral e Klipper com duas telas mobile. Os seletores de CondoSphere e Foco PMBA alternam as capturas no próprio bloco. Clique para ampliar; use os botões ou as setas do teclado para navegar e Escape para fechar. Os estudos de caso aprofundam decisões e testes sem repetir a galeria.
+A abertura apresenta Ian, sua atuação, formação e experiência em suporte. A vitrine concentra cada projeto em um único bloco: CondoSphere em destaque, seguido por Foco PMBA e Klipper. Os seletores de CondoSphere e Foco PMBA alternam as capturas no próprio bloco. Clique para ampliar; use os botões ou as setas do teclado para navegar e Escape para fechar. Os estudos de caso aprofundam decisões e testes.
+
+O painel **Na prática** reúne desenvolvimento, testes e dados pessoais na própria página principal. As abas funcionam por clique e teclado (setas, Home e End). O atalho de privacidade no CondoSphere abre diretamente a aba correspondente, com devolução do foco para o controle. Os resultados exibidos são registros com versão e escopo; o painel não simula testes ao vivo. Sem JavaScript, as três etapas ficam disponíveis em sequência.
 
 O estilo inclui entradas ao rolar, transições entre capturas, profundidade ao passar o mouse, cabeçalho fixo com indicação de seção e progresso de leitura. Os efeitos respeitam `prefers-reduced-motion`; os movimentos de ponteiro são limitados a dispositivos com mouse. Não há reprodução automática.
 

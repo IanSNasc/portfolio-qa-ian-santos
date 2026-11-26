@@ -55,3 +55,11 @@ Validação do portfólio: sintaxe JavaScript e verificador aprovados, com **47 
 O relatório local já registrado contém **45 aprovações em seis suítes relacionadas a LGPD**, sem falhas nesses arquivos. A documentação e os testes inspecionados descrevem serviços e painéis com dependências controladas e banco PGlite local com dados e claims de teste. A implementação é documentada como local, sem confirmação de publicação ou homologação autenticada. A exclusão irreversível permanece bloqueada enquanto a política de retenção não estiver definida. Não houve nova execução nem alteração do produto para elaborar este complemento.
 
 No material do portfólio, uma referência a pasta local e dois exemplos de telefone foram substituídos por placeholders. Foram conferidos conteúdo e metadados de seis imagens e do currículo PDF; o escopo e os limites estão em `PRIVACIDADE-PUBLICACAO.md`. Uma regra automatizada de publicação, com seis testes próprios, foi adicionada ao CI. Os resultados dos testes do portfólio passam a ser **18/18: 12 dos exemplos arquivados e seis da regra de publicação**. Esses testes não certificam o CondoSphere ou conformidade jurídica integral.
+
+## Reformulação pessoal da página principal
+
+A página passou a apresentar nome, atuação, experiência e formação na abertura, seguida pela vitrine compacta dos três projetos. O painel **Na prática** reúne construção, testes e cuidados com dados pessoais; os casos completos continuam disponíveis como aprofundamento.
+
+Validação local: **18/18 testes do portfólio**, sintaxe dos módulos JavaScript, **51 referências locais** e auditor textual aprovados. No navegador, foram conferidos desktop e larguras de 768, 390 e 320 px, sem rolagem lateral nos pontos observados ou imagens quebradas identificadas. Foram verificados seletores e ampliação das capturas, setas e Escape, devolução do foco do modal, as três abas, navegação com setas/Home/End, preservação de Ctrl+Home e o atalho de privacidade selecionando e focando a aba correta. A indicação de seção do menu acompanha a área em leitura. Nenhum erro de console foi observado.
+
+Os números dos produtos permanecem vinculados às execuções já registradas. Não houve nova execução dos testes do CondoSphere ou Foco PMBA para mudar a apresentação. O painel não executa testes ao vivo nem declara conformidade jurídica integral.

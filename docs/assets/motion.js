@@ -48,7 +48,7 @@ if ('IntersectionObserver' in window) {
   // Keep one observer for all sections so updates share the same active set.
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => { if (entry.isIntersecting) activeSections.add(entry.target); else activeSections.delete(entry.target); });
-    const current = sections.find(section => activeSections.has(section));
+    const current = sections.slice().reverse().find(section => activeSections.has(section));
     navigation.forEach(link => {
       if (current && link.getAttribute('href') === '#' + current.id) link.setAttribute('aria-current','location');
       else link.removeAttribute('aria-current');
