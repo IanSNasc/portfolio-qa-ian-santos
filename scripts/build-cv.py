@@ -1,4 +1,4 @@
-"""Build the one-page portfolio CV. Requires ReportLab."""
+"""Generate Ian Santos's one-page A4 CV with selectable text and PDF links."""
 from pathlib import Path
 
 from reportlab.lib.colors import HexColor
@@ -11,116 +11,120 @@ from reportlab.platypus import Paragraph
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/cv/Ian-Santos-Desenvolvimento.pdf"
-PORTFOLIO = "https://iansnasc.github.io/portfolio-qa-ian-santos/"
+SITE = "https://iansnasc.github.io/portfolio-qa-ian-santos/"
 WIDTH, HEIGHT = A4
-MARGIN = 37
-TEXT_WIDTH = WIDTH - 2 * MARGIN
-NAVY = "#132436"
-INK = "#192C39"
-MUTED = "#425866"
-TEAL = "#17604E"
-MINT = "#BEE9AC"
-PAPER = "#F1F6F2"
-LINE = "#C7D6D1"
-REGULAR, BOLD = "Helvetica", "Helvetica-Bold"
-fonts = Path("C:/Windows/Fonts")
-if (fonts / "segoeui.ttf").is_file() and (fonts / "segoeuib.ttf").is_file():
-    REGULAR, BOLD = "SegoeUI", "SegoeUI-Bold"
-    pdfmetrics.registerFont(TTFont(REGULAR, str(fonts / "segoeui.ttf")))
-    pdfmetrics.registerFont(TTFont(BOLD, str(fonts / "segoeuib.ttf")))
-pdfmetrics.registerFontFamily(REGULAR, normal=REGULAR, bold=BOLD)
+LEFT = 44
+RIGHT = WIDTH - LEFT
+INK = "#172735"
+BODY = "#293644"
+ACCENT = "#284B69"
+MUTED = "#475767"
+LINE = "#BCC8CF"
 
-canvas = Canvas(str(OUTPUT), pagesize=A4, invariant=True)
-canvas.setTitle("Ian Santos | Desenvolvimento de software e qualidade")
-canvas.setAuthor("Ian Santos")
-canvas.setSubject("Currículo profissional")
+regular, bold, display = "Helvetica", "Helvetica-Bold", "Times-Roman"
+font_dir = Path("C:/Windows/Fonts")
+for name, file in [("Segoe", "segoeui.ttf"), ("SegoeBold", "segoeuib.ttf"), ("Cambria", "cambria.ttc")]:
+    if (font_dir / file).is_file():
+        pdfmetrics.registerFont(TTFont(name, str(font_dir / file)))
+        if name == "Segoe":
+            regular = name
+        elif name == "SegoeBold":
+            bold = name
+        else:
+            display = name
+pdfmetrics.registerFontFamily(regular, normal=regular, bold=bold)
+page = Canvas(str(OUTPUT), pagesize=A4, invariant=True)
+page.setTitle("Ian Santos | Desenvolvimento de software")
+page.setAuthor("Ian Santos")
+page.setSubject("Currículo profissional")
 
 
-def text(top, content, *, x=MARGIN, width=TEXT_WIDTH, size=10.4,
-         leading=14.1, color=INK, bold=False):
-    style = ParagraphStyle("text", fontName=BOLD if bold else REGULAR,
-                           fontSize=size, leading=leading, textColor=HexColor(color))
-    paragraph = Paragraph(content, style)
-    _, height = paragraph.wrap(width, HEIGHT)
-    paragraph.drawOn(canvas, x, HEIGHT - top - height)
+def paragraph(top, content, size=11, leading=15.5, font=None, color=BODY, width=RIGHT-LEFT):
+    style = ParagraphStyle("cv", fontName=font or regular, fontSize=size,
+                           leading=leading, textColor=HexColor(color))
+    block = Paragraph(content, style)
+    _, height = block.wrap(width, HEIGHT)
+    block.drawOn(page, LEFT, HEIGHT - top - height)
     return top + height
 
 
 def section(top, label):
-    canvas.setStrokeColor(HexColor(LINE))
-    canvas.line(MARGIN, HEIGHT - top, WIDTH - MARGIN, HEIGHT - top)
-    return text(top + 6, label, size=12, leading=16, bold=True, color=TEAL) + 6
+    baseline = HEIGHT - top - 9
+    text = page.beginText(LEFT, baseline)
+    text.setFont(bold, 9.5)
+    text.setCharSpace(1.25)
+    text.setFillColor(HexColor(ACCENT))
+    text.textOut(label)
+    text.setCharSpace(0)
+    page.drawText(text)
+    end = LEFT + pdfmetrics.stringWidth(label, bold, 9.5) + len(label) * 1.25
+    page.setStrokeColor(HexColor(LINE))
+    page.setLineWidth(.55)
+    page.line(end + 12, baseline + 3, RIGHT, baseline + 3)
+    return top + 23
 
 
-def project(top, title, stack, description):
-    top = text(top, title, size=11.5, leading=15, bold=True)
-    top = text(top + 1, stack, size=9.2, leading=12.4, color=MUTED)
-    return text(top + 2, description) + 7
+def entry(top, title, detail):
+    detail_width = pdfmetrics.stringWidth(detail, regular, 9.2)
+    max_title = RIGHT - LEFT - detail_width - 14
+    if pdfmetrics.stringWidth(title, bold, 11.5) > max_title:
+        raise ValueError(f"Entry title overlaps its detail: {title}")
+    page.setFont(bold, 11.5)
+    page.setFillColor(HexColor(INK))
+    page.drawString(LEFT, HEIGHT - top - 11, title)
+    page.setFont(regular, 9.2)
+    page.setFillColor(HexColor(MUTED))
+    page.drawRightString(RIGHT, HEIGHT - top - 11, detail)
+    return top + 17
 
 
 def link(url, label):
-    return f'<link href="{url}"><u>{label}</u></link>'
+    return f'<link href="{url}" color="{ACCENT}"><u>{label.replace(" ", "&nbsp;")}</u></link>'
 
 
-canvas.setFillColor(HexColor(NAVY))
-canvas.rect(0, HEIGHT - 137, WIDTH, 137, fill=1, stroke=0)
-canvas.setFillColor(HexColor(MINT))
-canvas.rect(MARGIN, HEIGHT - 23, 29, 3, fill=1, stroke=0)
-text(28, "Ian Santos", size=32, leading=39, color="#FFFFFF", bold=True)
-text(70, "Desenvolvimento de software e qualidade", size=15, leading=20, color=MINT)
-contact = "Salvador, BA &nbsp; · &nbsp; " + link("mailto:ian.s4ntos@gmail.com", "ian.s4ntos@gmail.com")
-text(99, contact, size=10, leading=13, color="#FFFFFF")
-links = [link(PORTFOLIO, "Portfólio"), link("https://github.com/IanSNasc", "GitHub"),
-         link("https://www.linkedin.com/in/ian-santos-qa", "LinkedIn")]
-text(115, " &nbsp; · &nbsp; ".join(links), size=10, leading=13, color="#FFFFFF")
+y = paragraph(38, "Ian Santos", 32, 37, display, INK)
+y = paragraph(y + 3, "Desenvolvimento de software e qualidade", 14, 19, regular, ACCENT)
+contacts = ["Salvador, BA", link("mailto:ian.s4ntos@gmail.com", "ian.s4ntos@gmail.com"),
+            link(SITE, "Portfólio"), link("https://github.com/IanSNasc", "GitHub"),
+            link("https://www.linkedin.com/in/ian-santos-qa", "LinkedIn")]
+y = paragraph(y + 6, " &nbsp; · &nbsp; ".join(contacts), 9.8, 14, color=MUTED)
+y = paragraph(y + 11, "Estudo Engenharia de Software e trabalho com suporte de TI. Busco uma vaga de estágio ou júnior "
+              "em desenvolvimento web, com foco em qualidade e testes de software.")
 
-y = text(151, "Estudo Engenharia de Software e desenvolvo aplicações web com apoio de IA. "
-         "Trabalho com suporte de informática e busco uma oportunidade em desenvolvimento "
-         "para aplicar minha experiência com investigação de falhas e testes de software.")
-y = section(y + 11, "Projetos")
-panel_top = y
-panel_height = 108
-canvas.setFillColor(HexColor(PAPER))
-canvas.roundRect(MARGIN, HEIGHT - y - panel_height, TEXT_WIDTH, panel_height, 6, fill=1, stroke=0)
-detail = dict(x=MARGIN + 13, width=TEXT_WIDTH - 26)
-y = text(y + 7, "CondoSphere", size=15, leading=19, bold=True, **detail)
-y = text(y + 1, "Gestão condominial · React, TypeScript, Supabase, PostgreSQL e Vitest",
-         size=9.2, leading=13, color=TEAL, **detail)
-y = text(y + 2, "Criei o sistema do zero com apoio de IA. Desenvolvi fluxos de reservas, portaria e "
-         "comunicados com diferentes permissões. No painel de documentos, investiguei falhas de "
-         "consulta e testei a preservação de dados e a troca de conta.", **detail)
-y = text(y + 2, link(PORTFOLIO + "casos/condosphere/", "Consultar estudo de caso e testes"),
-         size=9.3, leading=12, color=TEAL, **detail)
-if y > panel_top + panel_height - 3:
-    raise ValueError("CondoSphere text exceeds the highlighted area")
+y = section(y + 17, "EXPERIÊNCIA PROFISSIONAL")
+y = entry(y, "Auxiliar de Informática", "Abril de 2024 – atual")
+y = paragraph(y, "Atacadão · Salvador, BA", 10, 14, color=MUTED)
+y = paragraph(y + 3, "Presto suporte aos usuários, investigo incidentes e valido sistemas após manutenções. "
+              "Monitoro servidores Linux e apoio as rotinas de backup e controle de permissões.")
 
-y = project(panel_top + panel_height + 8, "Foco PMBA", "Projeto pessoal · React, JavaScript, Vite e PWA",
-            "Criei o aplicativo para estudar para a Polícia Militar da Bahia, praticar questões e revisar erros. "
-            "Na execução local de 25/11/2026, os 17 testes de domínio, filtros, respostas e progresso passaram.")
-y = project(y, "Klipper", "Projeto de extensão · Python, Flask, Flutter e APIs REST",
-            "Desenvolvi e analisei fluxos de agendamento para barbearias. Documentei nove falhas de "
-            "usabilidade, segurança e regras de negócio.")
-y = project(y, "Portal de eventos culturais", "Projeto acadêmico · Python, Flask, SQLAlchemy e MySQL",
-            "Implementei rotas e modelos relacionais para publicar eventos e cadastrar inscrições. "
-            + link("https://github.com/IanSNasc/meu-projeto-flask", "Ver código"))
+y = section(y + 21, "PROJETOS")
+y = entry(y, "CondoSphere", "React · TypeScript · Supabase · PostgreSQL")
+y = paragraph(y, "Criei do zero, com apoio de IA, um sistema de gestão condominial com reservas, "
+              "portaria e comunicados. No fluxo de documentos, testei a recuperação de falhas e o "
+              "isolamento dos dados na troca de conta. " + link(SITE + "casos/condosphere/", "Estudo de caso"))
+y = entry(y + 12, "Foco PMBA", "React · JavaScript · PWA")
+y = paragraph(y, "Desenvolvi uma aplicação para estudar para a Polícia Militar da Bahia, praticar questões "
+              "e revisar erros. Na execução local de 25/11/2026, passaram os 17 testes de respostas, filtros, "
+              "progresso e regras de estudo.")
+y = entry(y + 12, "Klipper", "Python · Flask · Flutter")
+y = paragraph(y, "Em projeto de extensão, desenvolvi e analisei o agendamento para barbearias. "
+              "Documentei nove falhas de usabilidade, segurança e regras de negócio.")
+y = entry(y + 12, "Portal de eventos culturais", "Python · Flask · SQLAlchemy · MySQL")
+y = paragraph(y, "Implementei rotas e modelos de dados para publicar eventos e registrar inscrições. "
+              + link("https://github.com/IanSNasc/meu-projeto-flask", "Repositório"))
 
-y = section(y + 2, "Experiência")
-y = text(y, "Auxiliar de Informática · Atacadão", bold=True, size=11.5, leading=15)
-y = text(y + 1, "Desde abril de 2024", size=9.2, leading=12.4, color=MUTED)
-y = text(y + 2, "Presto suporte aos usuários, monitoro servidores Linux e apoio rotinas de backup e permissões. "
-         "Investigo incidentes, documento demandas e valido sistemas após manutenções.")
+y = section(y + 21, "FORMAÇÃO")
+y = entry(y, "Bacharelado em Engenharia de Software", "Conclusão prevista em julho de 2027")
+y = paragraph(y, "Universidade Pitágoras Unopar Anhanguera · EAD · Início em 2024")
+y = paragraph(y + 4, "<b>Formação complementar</b> · Trilhas QA Starter e QA API, QAzando.")
 
-y = section(y + 10, "Formação e capacitação")
-y = text(y, "<b>Engenharia de Software</b> · Universidade Pitágoras Unopar Anhanguera (EAD)")
-y = text(y, "2024 a 2027 · Conclusão prevista para julho de 2027", color=MUTED, size=9.5, leading=13)
-y = text(y + 2, "<b>QAzando</b> · Trilhas QA Starter e QA API · Certificação por módulo. &nbsp; <b>Inglês</b> · Intermediário.")
-
-y = section(y + 10, "Competências técnicas")
-y = text(y, "<b>Desenvolvimento</b> · React, JavaScript, TypeScript, Python, SQL, APIs REST, Supabase e Git.")
-y = text(y + 2, "<b>Qualidade</b> · Testes funcionais, exploratórios e de regressão, Vitest, CodeceptJS, "
-         "Playwright, Postman e BDD/Gherkin.")
-if y > HEIGHT - 22:
-    raise ValueError(f"CV content exceeds the printable area ({y:.1f} pt)")
-canvas.showPage()
-canvas.save()
+y = section(y + 21, "COMPETÊNCIAS")
+y = paragraph(y, "<b>Desenvolvimento</b> · React, TypeScript, JavaScript, Python, SQL, APIs REST, Supabase e Git.")
+y = paragraph(y + 3, "<b>Testes</b> · Testes funcionais, exploratórios e de regressão. Vitest, Playwright, CodeceptJS, "
+              "Postman e BDD/Gherkin.")
+y = paragraph(y + 3, "<b>Idioma</b> · Inglês intermediário.")
+if y > HEIGHT - 30:
+    raise ValueError(f"CV exceeds printable area at {y:.1f} pt")
+page.showPage()
+page.save()
 print(OUTPUT)
