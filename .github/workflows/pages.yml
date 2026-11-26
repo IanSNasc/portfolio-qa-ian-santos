@@ -19,6 +19,7 @@ jobs:
           node-version: 24
       - run: node --test tests/*.test.mjs
       - run: node scripts/verify-site.mjs
+      - run: node scripts/audit-publication.mjs
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs: validate

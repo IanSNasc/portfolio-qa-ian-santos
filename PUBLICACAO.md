@@ -7,6 +7,7 @@ O site está em `docs/`; o workflow usa a branch principal existente, `master`. 
 ```bash
 node --test tests/*.test.mjs
 node scripts/verify-site.mjs
+node scripts/audit-publication.mjs
 node scripts/serve.mjs
 ```
 
@@ -21,6 +22,12 @@ Os exemplos didáticos arquivados em `docs/demos/` têm seus próprios fluxos de
 Abra `casos/condosphere/` na prévia. Os links da vitrine e da seção de qualidade levam ao mesmo estudo. Confira os cinco cenários do modelo interativo, seus estados `aria-pressed`, a navegação por teclado, a tabela expansível dos 15 resultados e o resumo em `evidencias.json`. Os caminhos usam o subdiretório do projeto no GitHub Pages.
 
 O resumo tem 14 aprovações e uma falha da execução já registrada no commit `303c81c`. Criar ou conferir o estudo não equivale a executar novamente os testes do produto. Ao atualizar os resultados, confira também a tabela estática e a documentação em `projetos/condosphere/`.
+
+O complemento de privacidade em `#privacidade` apresenta 45 aprovações de seis suítes no mesmo registro. O estado local da implementação e as pendências de publicação, homologação e retenção devem permanecer explícitos. O arquivo `privacidade.json` é um resumo selecionado, sem logs brutos ou código privado.
+
+## Revisar exposição antes de publicar
+
+Siga a [revisão técnica de exposição](PRIVACIDADE-PUBLICACAO.md). O CI bloqueia padrões reconhecidos de dados e credenciais e não imprime seus valores. A conferência visual de imagens, metadados, PDF e conteúdo sem padrões reconhecíveis continua necessária. O pacote de download deve passar pelos mesmos comandos de validação, incluindo seus relatórios adicionais.
 
 ## Configuração inicial
 

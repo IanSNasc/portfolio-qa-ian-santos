@@ -28,7 +28,7 @@ A função `formatarTelefone()` contém índices incorretos que fazem a máscara
 2. Inserir um número de telefone
 3. Observar a formatação gerada
 
-**Resultado Esperado:** Telefone formatado corretamente: `(71) 99999-8888`
+**Resultado Esperado:** Telefone formatado corretamente: `(DD) 9XXXX-XXXX`
 
 **Resultado Obtido:** `(71)9-2887-024` (formato incorreto)
 

@@ -33,6 +33,8 @@ O estilo inclui entradas ao rolar, transições entre capturas, profundidade ao 
 
 O [estudo de caso do CondoSphere](docs/casos/condosphere/) aprofunda o problema de confundir falha de consulta com ausência de documentos. Apresenta o papel na criação e evolução do projeto, um modelo interativo de cinco estados e a evidência registrada de 15 testes da suíte específica: 14 aprovados e uma falha. A execução completa e seus limites continuam explícitos.
 
+O complemento de [privacidade no CondoSphere](projetos/condosphere/privacidade.md) documenta cuidados de isolamento, exportação e entrega, com 45 aprovações em seis suítes da execução local registrada. Publicação e homologação autenticada desse fluxo não foram confirmadas. A [revisão de exposição do portfólio](PRIVACIDADE-PUBLICACAO.md) descreve o que foi conferido nos materiais públicos e a verificação automatizada adicionada ao CI.
+
 Para conferir localmente, com Node instalado:
 
 ```bash
