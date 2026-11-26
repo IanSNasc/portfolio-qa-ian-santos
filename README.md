@@ -12,7 +12,7 @@ Meu foco profissional é **desenvolvimento de software, com destaque para qualid
 | [Foco PMBA](projetos/foco-pmba/README.md) | Organizar sessões, prática, erros, revisões e progresso de estudos | React, JavaScript, Vite, PWA, Node Test | Aplicação pessoal; 17 testes locais aprovados em 25/11/2026 |
 | [Klipper](projetos/klipper/README.md) | Projeto de extensão de agendamento para barbearias; desenvolvimento e análise da integração | Python, Flask, Flutter, APIs REST | Diagnóstico histórico com problemas e melhorias documentados |
 
-O código de CondoSphere e Foco PMBA permanece privado. As demonstrações foram implementadas separadamente, com dados fictícios e escopo reduzido; não redistribuem bancos, configurações ou credenciais desses projetos.
+O código de CondoSphere e Foco PMBA permanece privado. A vitrine usa capturas das interfaces originais e links para a demonstração pública do CondoSphere e a aplicação Foco PMBA já publicada. Não redistribui bancos, configurações ou credenciais dos projetos.
 
 Também há um [projeto acadêmico de eventos culturais](projetos/eventos-culturais/README.md), com Python/Flask, SQLAlchemy e MySQL, cujo código público foi inspecionado. Ele complementa os três casos principais.
 
@@ -20,9 +20,22 @@ Também há um [projeto acadêmico de eventos culturais](projetos/eventos-cultur
 
 O site está em [docs/](docs/). Usa HTML, CSS e módulos JavaScript sem framework, dependências externas ou compilação.
 
-- **CondoSphere:** simulação local de reservas. Morador solicita/cancela, gestão aprova/rejeita e portaria consulta as aprovadas. A troca de perfil não é autenticação real.
-- **Foco PMBA:** registro de estudo, três questões didáticas, revisão de erros, persistência e backup validado. Não representa prova ou edital oficial.
+- **CondoSphere:** capturas e acesso à [demonstração pública do próprio projeto](https://condosphere.netlify.app/demo/gestao), com moradores, unidades, comunicados, portaria e reservas fictícios.
+- **Foco PMBA:** capturas e acesso à [aplicação original publicada](https://pm-sp-questoes.web.app/), com painel, prática por matéria, aulas e revisão.
+- **Klipper:** capturas originais do app Flutter, provenientes das imagens já existentes no repositório.
 - **Currículo:** [versão web](docs/cv/index.html) e [PDF em português](docs/cv/Ian-Santos-Desenvolvimento.pdf), voltados a desenvolvimento.
+
+A [origem das capturas](docs/assets/screenshots/ORIGEM.md) é documentada. Os exemplos independentes anteriores em `docs/demos/` permanecem como material didático; deixaram de ser a apresentação principal dos aplicativos. Os 12 testes desses exemplos não validam as aplicações externas.
+
+A abertura apresenta Ian, sua atuação, formação e experiência em suporte. A vitrine concentra cada projeto em um único bloco: CondoSphere em destaque, seguido por Foco PMBA e Klipper. Os seletores de CondoSphere e Foco PMBA alternam as capturas no próprio bloco. Clique para ampliar; use os botões ou as setas do teclado para navegar e Escape para fechar. Os estudos de caso aprofundam decisões e testes.
+
+O painel **Na prática** reúne desenvolvimento, testes e dados pessoais na própria página principal. As abas funcionam por clique e teclado (setas, Home e End). O atalho de privacidade no CondoSphere abre diretamente a aba correspondente, com devolução do foco para o controle. Os resultados exibidos são registros com versão e escopo; o painel não simula testes ao vivo. Sem JavaScript, as três etapas ficam disponíveis em sequência.
+
+O estilo inclui entradas ao rolar, transições entre capturas, profundidade ao passar o mouse, cabeçalho fixo com indicação de seção e progresso de leitura. Os efeitos respeitam `prefers-reduced-motion`; os movimentos de ponteiro são limitados a dispositivos com mouse. Não há reprodução automática.
+
+O [estudo de caso do CondoSphere](docs/casos/condosphere/) aprofunda o problema de confundir falha de consulta com ausência de documentos. Apresenta o papel na criação e evolução do projeto, um modelo interativo de cinco estados e a evidência registrada de 15 testes da suíte específica: 14 aprovados e uma falha. A execução completa e seus limites continuam explícitos.
+
+O complemento de [privacidade no CondoSphere](projetos/condosphere/privacidade.md) documenta cuidados de isolamento, exportação e entrega, com 45 aprovações em seis suítes da execução local registrada. Publicação e homologação autenticada desse fluxo não foram confirmadas. A [revisão de exposição do portfólio](PRIVACIDADE-PUBLICACAO.md) descreve o que foi conferido nos materiais públicos e a verificação automatizada adicionada ao CI.
 
 Para conferir localmente, com Node instalado:
 

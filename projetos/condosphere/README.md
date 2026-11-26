@@ -1,6 +1,6 @@
 # CondoSphere — Desenvolvimento de um SaaS condominial
 
-**Papel:** projeto pessoal desenvolvido com apoio de IA. **Foco:** desenvolvimento e qualidade dos fluxos. **Código:** privado. **Referência:** commit `303c81c5f47663455868b71defe7a3d44f019dcc`.
+**Papel:** criação do projeto do zero e evolução progressiva do produto, com apoio de IA. O trabalho envolveu ajustes em anexos de documentos, notificações, funções e telas. **Foco:** desenvolvimento e qualidade dos fluxos. **Código:** privado. **Referência técnica:** commit `303c81c5f47663455868b71defe7a3d44f019dcc`.
 
 ## Problema
 
@@ -20,6 +20,8 @@ O currículo anterior descreve desenvolvimento independente com apoio de IA, cri
 
 [Falha na consulta não é ausência de documentos](feedback-documentos.md): separar carga, vazio confirmado, falha e atualização parcial evita informar que dados existentes desapareceram.
 
+O [estudo de caso navegável](../../docs/casos/condosphere/) apresenta contexto, papel no projeto, um modelo interativo dos estados e os resultados de 15 cenários da suíte de regressão: 14 aprovados e uma falha no registro consultado. O diagrama é didático; não é uma captura nem uma execução do aplicativo. O conteúdo público não redistribui código privado.
+
 ## Testes e estado atual
 
 Em 25/11/2026, a execução local de `vitest run --maxWorkers=2`, no commit acima, terminou com **837 testes, 790 aprovados e 47 falhas**, em 101 arquivos de teste (nove com falhas). Código de saída 1.
@@ -35,3 +37,8 @@ O relatório registra preparação de SMTP, cadastro do condomínio e homologaç
 ## Demonstração pública
 
 [`docs/demos/condosphere/`](../../docs/demos/condosphere/) é uma simulação nova e independente de reservas, com dados fictícios, três perfis e persistência local. Não usa credenciais, API ou banco privado. Os botões de perfil não demonstram segurança de backend, RLS ou concorrência real no banco.
+
+
+## Interface original na vitrine
+
+O portfólio agora mostra capturas da demonstração pública do próprio CondoSphere e abre essa interface original. Os dados da demonstração são fictícios. [Abrir projeto](https://condosphere.netlify.app/demo/gestao). As capturas têm origem e data registradas em `docs/assets/screenshots/ORIGEM.md`. Os exemplos independentes descritos acima foram preservados como material didático, sem ocupar a apresentação principal.

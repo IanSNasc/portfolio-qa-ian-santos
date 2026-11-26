@@ -183,7 +183,7 @@ A função `formatarTelefone()` contém índices errados, gerando formato invál
 - Dados inconsistentes
 
 **Sugestão de Implementação:**
-Revisar a lógica de índices da função `formatarTelefone()` e corrigir para gerar formato correto: `(71) 99999-8888`.
+Revisar a lógica de índices da função `formatarTelefone()` e corrigir para gerar formato correto: `(DD) 9XXXX-XXXX`.
 
 ---
 

@@ -170,7 +170,7 @@ Este documento define a estratégia e o escopo dos testes para o **JobPilot**, u
 
 ```bash
 # 1. Clonar repositório
-cd D:/IA/Job_automation
+cd <diretorio-do-projeto>
 
 # 2. Criar virtual environment
 python -m venv .venv

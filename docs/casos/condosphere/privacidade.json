@@ -1,0 +1,59 @@
+{
+  "projeto": "CondoSphere",
+  "recorte": "Cuidados com dados pessoais no fluxo de atendimento de privacidade",
+  "commit": "303c81c5f47663455868b71defe7a3d44f019dcc",
+  "dataExecucao": "2026-11-25",
+  "tipo": "Resumo do relatório local já registrado; nenhuma nova execução do produto nesta revisão",
+  "estadoImplementacao": "Implementação local documentada; publicação e homologação autenticada não confirmadas",
+  "ambientes": [
+    "Vitest e jsdom com serviços e transportes controlados",
+    "PGlite local com fixtures e claims controladas nas suítes de banco"
+  ],
+  "total": 45,
+  "aprovados": 45,
+  "falhas": 0,
+  "suites": [
+    {
+      "arquivo": "lgpd-delivery-service.test.ts",
+      "total": 3,
+      "aprovados": 3,
+      "falhas": 0
+    },
+    {
+      "arquivo": "lgpd-fulfillment-database.test.ts",
+      "total": 13,
+      "aprovados": 13,
+      "falhas": 0
+    },
+    {
+      "arquivo": "lgpd-handler.test.ts",
+      "total": 5,
+      "aprovados": 5,
+      "falhas": 0
+    },
+    {
+      "arquivo": "lgpd-intake-database.test.ts",
+      "total": 12,
+      "aprovados": 12,
+      "falhas": 0
+    },
+    {
+      "arquivo": "lgpd-panels.test.tsx",
+      "total": 8,
+      "aprovados": 8,
+      "falhas": 0
+    },
+    {
+      "arquivo": "lgpd-service.test.ts",
+      "total": 4,
+      "aprovados": 4,
+      "falhas": 0
+    }
+  ],
+  "limites": [
+    "As seis suítes são parte da execução completa de 837 testes, que teve 47 falhas em outros recortes.",
+    "Aprovação em testes locais não certifica conformidade integral com a LGPD nem funcionamento em produção.",
+    "A documentação mantém exclusão irreversível bloqueada enquanto a política de retenção não está definida.",
+    "Código privado, logs brutos e dados operacionais não são redistribuídos."
+  ]
+}

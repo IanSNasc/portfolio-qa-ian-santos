@@ -29,3 +29,8 @@ O README de origem descreve 688 questões autorais e de acervo selecionado, sem 
 ## Demonstração do portfólio
 
 [`docs/demos/pmba/`](../../docs/demos/pmba/) foi criada separadamente para registro de estudo, resposta, revisão e backup. Usa três questões didáticas novas e `ian_portfolio_pmba_v1`; não copia o banco privado nem altera dados do app original.
+
+
+## Interface original na vitrine
+
+O portfólio agora mostra capturas do aplicativo Foco PMBA publicado e oferece acesso à sua interface original. [Abrir projeto](https://pm-sp-questoes.web.app/). As capturas têm origem e data registradas em `docs/assets/screenshots/ORIGEM.md`. Os exemplos independentes descritos acima foram preservados como material didático, sem ocupar a apresentação principal.
