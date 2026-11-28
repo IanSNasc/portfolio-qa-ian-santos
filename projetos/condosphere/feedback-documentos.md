@@ -19,7 +19,13 @@ No painel do profissional do CondoSphere, consultar documentos pode falhar indep
 5. Arquivo, tipo de documento e instituição em edição são preservados na recuperação.
 6. Trocar de conta descarta rascunho e dados anteriores, inclusive respostas atrasadas.
 
-## Evidência
+## Resultado de 27/11/2026
+
+Os **15 testes de documentos passaram** na base `303c81c` com correções locais. Na carga inicial, o painel aguarda a identificação do cadastro para consultar as listas. Enquanto aguarda, mantém a quantidade de documentos em aberto.
+
+Esse recorte integra os **856 testes aprovados em 106 arquivos do Vitest**. O Playwright aprovou **124 cenários** nos perfis de desktop e celular. A validação ocorreu em ambiente local, com emulação de celular no navegador. A homologação autenticada em aparelho real segue pendente.
+
+## Registro histórico de 25/11/2026
 
 A suíte privada `tests/regression/professional-selfservice-feedback.test.tsx`, inspecionada no commit `303c81c`, contém testes de hooks e componentes com serviços simulados para esses estados.
 

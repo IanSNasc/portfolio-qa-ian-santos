@@ -20,15 +20,13 @@ O currículo anterior descreve desenvolvimento independente com apoio de IA, cri
 
 [Falha na consulta não é ausência de documentos](feedback-documentos.md): separar carga, vazio confirmado, falha e atualização parcial evita informar que dados existentes desapareceram.
 
-O [estudo de caso navegável](../../docs/casos/condosphere/) apresenta contexto, papel no projeto, um modelo interativo dos estados e os resultados de 15 cenários da suíte de regressão: 14 aprovados e uma falha no registro consultado. O diagrama é didático; não é uma captura nem uma execução do aplicativo. O conteúdo público não redistribui código privado.
+O [estudo de caso navegável](../../docs/casos/condosphere/) apresenta contexto, papel no projeto, um modelo interativo dos estados e a evolução dos 15 cenários de documentos entre 25 e 27 de novembro. O diagrama é didático; não é uma captura nem uma execução do aplicativo. O conteúdo público não redistribui código privado.
 
 ## Testes e estado atual
 
-Em 25/11/2026, a execução local de `vitest run --maxWorkers=2`, no commit acima, terminou com **837 testes, 790 aprovados e 47 falhas**, em 101 arquivos de teste (nove com falhas). Código de saída 1.
+Em 27/11/2026, a base `303c81c` com correções locais passou em **856/856 testes do Vitest** (106 arquivos) e **124/124 testes do Playwright** em perfis de desktop e celular. No painel do profissional, passaram os **15/15 cenários** de documentos, incluindo a carga inicial do cadastro.
 
-Há divergências entre expectativas de regressão e comportamentos de contextos, formulários, consultas e handlers. Esta revisão não concluiu que cada falha represente defeito de produção, nem as atribuiu genericamente ao ambiente. É necessário reproduzir e classificar antes de alterar testes ou implementação.
-
-O relatório antigo de 419 testes/84 cenários smoke não é uma nova execução confirmada. Não foram executados testes remotos, Playwright completo, deploy ou operações financeiras nesta atualização.
+O [registro anterior, de 25/11](../../evidencias/validacoes-2026-11-25.md), documenta 790 aprovações em 837 testes do Vitest e 14 em 15 no recorte de documentos. As execuções têm conjuntos de testes de tamanhos diferentes.
 
 ## Limites do piloto
 

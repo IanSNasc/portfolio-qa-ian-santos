@@ -8,7 +8,7 @@ Meu foco profissional é **desenvolvimento de software, com destaque para qualid
 
 | Projeto | Problema e contribuição | Tecnologias | Estado apresentado |
 |---|---|---|---|
-| [CondoSphere](projetos/condosphere/README.md) | Projeto pessoal de gestão condominial: interface, regras por perfil, isolamento e validação de fluxos | React, TypeScript, Supabase, PostgreSQL, Vitest, Playwright | Preparação para piloto; financeiro em sandbox; testes atuais com pendências |
+| [CondoSphere](projetos/condosphere/README.md) | Projeto pessoal de gestão condominial: interface, regras por perfil, isolamento e validação de fluxos | React, TypeScript, Supabase, PostgreSQL, Vitest, Playwright | Preparação para piloto · financeiro em sandbox · regressão local aprovada em 27/11 |
 | [Foco PMBA](projetos/foco-pmba/README.md) | Organizar sessões, prática, erros, revisões e progresso de estudos | React, JavaScript, Vite, PWA, Node Test | Aplicação pessoal; 17 testes locais aprovados em 25/11/2026 |
 | [Klipper](projetos/klipper/README.md) | Projeto de extensão de agendamento para barbearias; desenvolvimento e análise da integração | Python, Flask, Flutter, APIs REST | Diagnóstico histórico com problemas e melhorias documentados |
 
@@ -60,7 +60,10 @@ O contexto de desenvolvimento contém uso do Codex e documentação de skills do
 
 ## Qualidade e resultados verificáveis
 
-O [registro de validação de 25/11/2026](evidencias/validacoes-2026-11-25.md) informa versão, comando, resultado e limites. Foco PMBA passou em **17/17 testes** locais. CondoSphere terminou com **790 aprovados e 47 falhas**, em **837 testes**; não é apresentado como aprovação completa ou homologação de produção.
+| Projeto | Execução local | Resultado |
+| --- | --- | --- |
+| CondoSphere | [27/11/2026](projetos/condosphere/feedback-documentos.md) | Vitest **856/856** e Playwright **124/124**. O recorte de documentos passou de 14/15 para **15/15**. |
+| Foco PMBA | [25/11/2026](evidencias/validacoes-2026-11-25.md) | **17/17** testes aprovados. |
 
 O estudo [erro de consulta versus ausência de documentos](projetos/condosphere/feedback-documentos.md) explica uma decisão da interface e sua regressão automatizada. Dependências simuladas, testes de navegador, políticas de banco e homologação com usuários têm escopos diferentes.
 
