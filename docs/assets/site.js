@@ -15,3 +15,9 @@ document.querySelectorAll('[data-case]').forEach(button => button.addEventListen
 document.querySelector('#close-case').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } });
 dialog.addEventListener('close', () => lastTrigger?.focus());
+
+for (const section of document.querySelectorAll('.video-choice')) {
+  section.addEventListener('toggle', () => {
+    if (!section.open) section.querySelector('video').pause();
+  });
+}
