@@ -17,3 +17,5 @@
   .regression-table :is(th, td) { padding: .65rem .35rem; }
   .regression-table td { white-space: normal; }
 }
+
+.current-run + .historical-run { margin-top: .75rem; }
