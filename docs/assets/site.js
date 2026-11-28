@@ -16,8 +16,36 @@ document.querySelector('#close-case').addEventListener('click', () => dialog.clo
 dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } });
 dialog.addEventListener('close', () => lastTrigger?.focus());
 
-for (const section of document.querySelectorAll('.video-choice')) {
-  section.addEventListener('toggle', () => {
-    if (!section.open) section.querySelector('video').pause();
+const filmDialog = document.querySelector('#film-dialog');
+if (filmDialog && typeof filmDialog.showModal === 'function') {
+  const player = filmDialog.querySelector('video');
+  let trigger;
+  for (const cover of document.querySelectorAll('.film-cover')) {
+    cover.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey || event.button !== 0) return;
+      event.preventDefault();
+      trigger = cover;
+      const captions = document.createElement('track');
+      Object.assign(captions, {kind:'captions', srclang:'pt-BR', label:'Português (Brasil)', src:cover.dataset.captions});
+      filmDialog.querySelector('h2').textContent = cover.dataset.title;
+      player.setAttribute('aria-label', cover.dataset.title);
+      player.replaceChildren(captions);
+      player.src = cover.href;
+      filmDialog.showModal();
+      player.play().catch(() => { /* The native play control remains available. */ });
+    });
+  }
+  filmDialog.querySelector('button').addEventListener('click', () => filmDialog.close());
+  filmDialog.addEventListener('click', event => {
+    if (event.target !== filmDialog) return;
+    const bounds = filmDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) filmDialog.close();
+  });
+  filmDialog.addEventListener('close', () => {
+    player.pause();
+    player.removeAttribute('src');
+    player.replaceChildren();
+    player.load();
+    trigger?.focus({preventScroll:true});
   });
 }
